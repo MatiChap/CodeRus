@@ -41,6 +41,7 @@ body {
   font-family: "open sans", sans-serif;
   font-size: 1em;
   border: solid 1px rgb(56, 66, 67);
+  padding: 10px;
 }
 
 #buscador {
@@ -82,7 +83,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 60px 0px;
+  margin: 65px 0px;
+  flex-direction: column;
 }
 #LogoTiny {
   width: 60px;
@@ -119,6 +121,11 @@ footer {
     margin: 15px;
     font-weight: 550;
     min-height: 48px;
+  }
+  #botbar {
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
   }
   .navright {
     height: 48px;
@@ -179,6 +186,7 @@ footer {
   padding: 5px;
   border-radius: 15px;
   background-color: #75b78e;
+  min-width:20vw;
 }
 
 .input {
@@ -186,6 +194,7 @@ footer {
   font-family: "open sans", sans-serif;
   border: solid 1px rgb(56, 66, 67);
   border-radius: 5px;
+  text-align: center;
 }
 
 .form label {
@@ -196,7 +205,7 @@ footer {
   background-color: rgb(224, 216, 117);
   padding: 7px;
   border-radius: 7px;
-  border: solid 1px rgb(56, 66, 67);
+  border: solid 2px rgb(56, 66, 67);
 }
 #regtitle {
   font-family: "open sans", sans-serif;
@@ -213,5 +222,102 @@ input.input:nth-child(1) {
   background-color: rgb(224, 216, 117);
   padding: 7px;
   border-radius: 7px;
-  border: solid 1px rgb(56, 66, 67);
+  border: solid 2px rgb(56, 66, 67);
+  transition: all 0.5s
 }
+input.input:nth-child(1):hover {
+  font-size: 30px;
+}
+
+#homeCard {
+  background-color: #374243;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 15px;
+  border: ridge 6px #75b78e;
+  font-family: "open sans", sans-serif;
+  text-align: center;
+  height: 400px;
+  padding: 15px;
+  color: white;
+}
+
+#homeCard h3 {
+  font-size: 2em;
+  background-color: rgba(83, 83, 75, 0.6);
+  border-radius: 15px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.buttons {
+  background-color: #374243;
+  color: white;
+  padding: 12px;
+  font-family: "open sans", sans-serif;
+  font-weight: bold;
+  border-radius: 10px;
+  border: ridge 2px #75b78e;
+  font-size: 1.5em;
+}
+
+#botbar {
+  text-align: center;
+  height: 50px;
+  
+  
+}
+#botbar .buttons{
+  transition: all 0.5s;
+}
+#botbar .buttons:hover{
+  font-size: 1.7em;
+  transition: 0.5s;
+}
+.profile {
+  padding:10px;
+  border:solid 1.5px #384243;
+  text-align: center;
+  font-family: "open sans",sans-serif;
+  color: #141414;
+  border-radius: 30px;
+  background: white;
+  max-width: 50%;
+}
+.success {
+  text-align: center;
+  border-radius: 15px;
+  border: solid 1px #374243;
+  background-color: #dbd76c94;
+  font-family: "open sans",sans-serif;
+  padding: 20px;
+  margin:15px;
+}
+.pp {
+  border: ridge 3px #dbd76c;
+  border-radius: 10px;
+}
+.profile h3 {
+  font-size: 1.5em;
+  text-decoration: underline;
+}
+.success h4{
+
+color:#384243;
+padding: 5px;
+}
+
+.myCart h1 {
+  font-family: "open sans",sans-serif;
+  font-weight: lighter;
+}
+
+.myCart {
+  background-color:#dbd76c94;
+  border-radius: 15px;
+  padding: 15px;
+  border: solid 2px #384243;
+}
+
