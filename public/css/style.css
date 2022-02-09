@@ -71,13 +71,14 @@ body {
 #boton {
   text-align: center;
   color: rgb(219, 217, 118);
-  font-size: 40px;
+  font-size: 1.8em;
   display: block;
   border-radius: 12px;
   max-width: 50px;
   background-color: rgb(56, 66, 67);
   max-height: 50px;
   margin: auto;
+  padding:5px;
 }
 #bodyMain {
   display: flex;
@@ -151,7 +152,7 @@ footer {
     transition: 0.5s;
   }
   #navbar li:hover {
-    font-size: 20px;
+    font-size: 1.2em;
     border-radius: 12px;
     background-color: #38424333;
 
@@ -187,6 +188,7 @@ footer {
   border-radius: 15px;
   background-color: #75b78e;
   min-width:20vw;
+  width: 350px;
 }
 
 .input {
@@ -199,7 +201,7 @@ footer {
 
 .form label {
   font-family: "open sans", sans-serif;
-  font-size: 1em;
+  font-size: 1.1em;
   color: #384243;
 
   background-color: #dbd76cdb;
@@ -217,7 +219,7 @@ footer {
 }
 
 input.input:nth-child(1) {
-  font-size: 25px;
+  font-size: 1.8em;
   color: #384243;
   background-color: #dbd76cdb;
   padding: 7px;
@@ -226,7 +228,7 @@ input.input:nth-child(1) {
   transition: all 0.5s
 }
 input.input:nth-child(1):hover {
-  font-size: 30px;
+  font-size: 1.9em;
 }
 
 #homeCard {
@@ -290,9 +292,10 @@ input.input:nth-child(1):hover {
   font-family: "open sans",sans-serif;
   color: #141414;
   border-radius: 30px;
-  background: white;
+  background: #dddddd;
   max-width: 50%;
   overflow:auto;
+  width:500px;
 }
 .success {
   text-align: center;
@@ -323,12 +326,21 @@ padding: 5px;
 .myCart h1 {
   font-family: "open sans",sans-serif;
   font-weight: lighter;
+  background-color: #dbd976;
+  border-radius: 15px;
+  padding:10px;
+  border:solid 0.5px #384243;
 }
 
 .myCart {
-  background-color:#dbd76c94;
+  background-color:#75b78ecc;
+  display: flex;
   border-radius: 15px;
   padding: 15px;
+  gap:10px;
   border: solid 2px #384243;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
