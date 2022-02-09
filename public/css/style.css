@@ -71,7 +71,7 @@ body {
 #boton {
   text-align: center;
   color: rgb(219, 217, 118);
-  font-size: 25px;
+  font-size: 40px;
   display: block;
   border-radius: 12px;
   max-width: 50px;
@@ -202,7 +202,7 @@ footer {
   font-size: 1em;
   color: #384243;
 
-  background-color: rgb(224, 216, 117);
+  background-color: #dbd76cdb;
   padding: 7px;
   border-radius: 7px;
   border: solid 2px rgb(56, 66, 67);
@@ -219,7 +219,7 @@ footer {
 input.input:nth-child(1) {
   font-size: 25px;
   color: #384243;
-  background-color: rgb(224, 216, 117);
+  background-color: #dbd76cdb;
   padding: 7px;
   border-radius: 7px;
   border: solid 2px rgb(56, 66, 67);
@@ -276,6 +276,13 @@ input.input:nth-child(1):hover {
   font-size: 1.7em;
   transition: 0.5s;
 }
+.buttons{
+  transition: all 0.5s;
+}
+.buttons:hover{
+  font-size: 1.7em;
+  transition: 0.5s;
+}
 .profile {
   padding:10px;
   border:solid 1.5px #384243;
@@ -285,6 +292,7 @@ input.input:nth-child(1):hover {
   border-radius: 30px;
   background: white;
   max-width: 50%;
+  overflow:auto;
 }
 .success {
   text-align: center;
@@ -298,6 +306,9 @@ input.input:nth-child(1):hover {
 .pp {
   border: ridge 3px #dbd76c;
   border-radius: 10px;
+  width: 80%;
+  
+  
 }
 .profile h3 {
   font-size: 1.5em;
