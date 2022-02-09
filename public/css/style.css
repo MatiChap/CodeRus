@@ -9,10 +9,11 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #c0c0c0;
+  background-image: url("/img/bg.png");
+  background-repeat: no-repeat;
 }
 #main-header {
-  background-color: #75b78e;
+  background-image: linear-gradient(to right,#75b78e, silver, #75b78e);
   text-align: center;
   width: 100%;
   position: sticky;
@@ -28,6 +29,7 @@ body {
   border-radius: 10px;
   transition: all 0.5s;
   border: solid 1px rgb(56, 66, 67);
+  box-shadow: 1px 2.5px #88888891;
 }
 #lupa :hover {
   transition: 0.5s;
@@ -42,11 +44,13 @@ body {
   font-size: 1em;
   border: solid 1px rgb(56, 66, 67);
   padding: 10px;
+  box-shadow: 1px 2.5px #88888891;
 }
 
 #buscador {
   width: 80%;
   margin: auto;
+  
 }
 #LogoBig {
   width: 40vw;
@@ -94,7 +98,7 @@ body {
   align-self: center;
 }
 footer {
-  background-color: #75b78e;
+  background-image: linear-gradient(to left, #75b78e,silver, #75b78e);
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -187,7 +191,7 @@ footer {
   flex-direction: column;
   padding: 5px;
   border-radius: 15px;
-  background-color: #75b78e;
+  background-image: linear-gradient(to top,#dbd76cdb, #75b78e);
   min-width:20vw;
   width: 350px;
 }
@@ -203,12 +207,12 @@ footer {
 .form label {
   font-family: "open sans", sans-serif;
   font-size: 1.1em;
-  color: #384243;
+  background-color: #384243;
 
-  background-color: #dbd76cdb;
+  color: #dadada;
   padding: 7px;
   border-radius: 7px;
-  border: solid 2px rgb(56, 66, 67);
+  border: ridge 2px #75b78e;
 }
 #regtitle {
   font-family: "open sans", sans-serif;
@@ -217,15 +221,17 @@ footer {
   background-color: #384243;
   border-radius: 7px;
   padding: 2px;
+  border: ridge 2px #75b78e;
+
 }
 
 input.input:nth-child(1) {
   font-size: 1.8em;
-  color: #384243;
-  background-color: #dbd76cdb;
+  color: #dadada;
+  background-color: #384243;
   padding: 7px;
   border-radius: 7px;
-  border: solid 2px rgb(56, 66, 67);
+  border: ridge 2px #75b78e;
   transition: all 0.5s
 }
 input.input:nth-child(1):hover {
@@ -249,7 +255,7 @@ input.input:nth-child(1):hover {
 
 #homeCard h3 {
   font-size: 2em;
-  background-color: rgba(83, 83, 75, 0.6);
+  background-color: rgb(35, 42, 43);
   border-radius: 15px;
   font-weight: bold;
   padding: 10px;
@@ -288,27 +294,31 @@ input.input:nth-child(1):hover {
 }
 .profile {
   padding:10px;
-  border:solid 1.5px #384243;
+  border:ridge 6px #384243;
   text-align: center;
   font-family: "open sans",sans-serif;
   color: #141414;
   border-radius: 30px;
-  background: #dddddd;
+  background-image: linear-gradient(#75b78e, silver);
   max-width: 50%;
   overflow:auto;
   width:500px;
+  max-height: 50%;
+  
+  
+
 }
 .success {
   text-align: center;
   border-radius: 15px;
   border: solid 1px #374243;
-  background-color: #dbd76c94;
+  background-image: linear-gradient(to left,rgba(219, 215, 108, 0.904),#75b78e);
   font-family: "open sans",sans-serif;
   padding: 20px;
   margin:15px;
 }
 .pp {
-  border: ridge 3px #dbd76c;
+  box-shadow: 5px 10px #88888891;
   border-radius: 10px;
   width: 80%;
   
@@ -320,21 +330,21 @@ input.input:nth-child(1):hover {
 }
 .success h4{
 
-color:#384243;
+color:#292929;
 padding: 5px;
 }
 
 .myCart h1 {
   font-family: "open sans",sans-serif;
   font-weight: lighter;
-  background-color: #dbd976;
+  background-image: linear-gradient(to bottom right, #dbd976,silver);
   border-radius: 15px;
   padding:10px;
   border:solid 0.5px #384243;
 }
 
 .myCart {
-  background-color:#75b78ecc;
+  background-image: linear-gradient(silver, #75b78e);
   display: flex;
   border-radius: 15px;
   padding: 15px;
