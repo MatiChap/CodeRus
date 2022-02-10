@@ -16,5 +16,6 @@ app.listen(process.env.PORT || 3000, () =>
 console.log('Levantando un servidor con Express')
 );
 
-app.set('views','/views');
+app.set('view engine','ejs');
 
+app.set('views', path.join(__dirname, '/views'))

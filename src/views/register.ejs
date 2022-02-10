@@ -15,35 +15,7 @@
 
 
 <body>
-    <header id="main-header"> 
-        <div id="header">
-            <a href="/"><img id="LogoBig" src="/img/Logo.png"></a>
-            <form id="buscador" action="#" method="post">
-                    <input id="barra" name="search" placeholder="Search for developers, employers or projects"></input><button type="submit" id="lupa"><i class="fas fa-search"></i></button>
-            </form>
-                    <h1 id="promo">Connecting development and projects all around the world. <em><i class="fas fa-globe"></i></em>
-                    </h1>
-        
-        
-        
-            </div>
-            <nav id="navbar">
-                    <ul class="navleft">
-                        <li><a href='#'>Projects</a></li>
-                        <li><a href='/dev'>Developers</a></li>
-                        <li><a href='#'>Trending</a></li>
-                        <li><a href='#'>Help</a></li>
-        
-                    </ul>
-                    <ul class="navright">
-                        <li><a href='/register'>Register <em><i class="far fa-id-badge"></i></em></a></li>
-                        <li><a href='/login'>Log In <em><i class="fas fa-user"></i></em></a></li>
-                        <li><a href='/cart'>Shopping Cart <em><i class="fas fa-shopping-cart"></i></em></a></li>
-                    </ul>
-            </nav>
-            <a href="#" id="boton"><i class="fas fa-align-justify"></i></a>
-                
-    </header>
+    <%- include('./partials/header') %>
     <div id="bodyMain">
         <form class="form" action="/register" method="post">
             <h1 id="regtitle">Sign-In</h1>
@@ -85,12 +57,7 @@
     </div>
 </body>
 <footer>
-    <article id="contact">
-    <img id="LogoTiny" src="/img/TinyLogo.png">
-    <p>| Contact us |</p>
-    <p>| Terms & Conditions |</p>
-    <p>| Report |</p>
-    </article>
+    <%- include('./partials/footer') %>
 </footer>
 
 

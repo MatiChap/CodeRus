@@ -11,6 +11,10 @@ body {
   padding: 0;
   background-image: url("/img/bg.png");
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  
 }
 #main-header {
   background-image: linear-gradient(to right, #75b78e, silver, #75b78e);
@@ -87,7 +91,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 65px 0px;
+  margin: 65px 0px 90px 0px;
   flex-direction: column;
 }
 #LogoTiny {
