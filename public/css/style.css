@@ -91,7 +91,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 65px 0px 90px 0px;
+  margin: 45px 0px 85px 0px;
   flex-direction: column;
 }
 #LogoTiny {
@@ -105,7 +105,6 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  z-index: 1000;
   border: solid 2px rgb(56, 66, 67);
 }
 #contact {
@@ -134,7 +133,7 @@ footer {
     justify-content: space-evenly;
     display: flex;
     align-items: center;
-    margin-bottom: 55px;
+    margin-bottom: 80px;
   }
   .navright {
     height: 48px;
