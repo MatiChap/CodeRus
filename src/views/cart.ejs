@@ -18,7 +18,7 @@
     <%- include('./partials/header') %>
     <div id="bodyMain">
         <div class="myCart">
-            <h1>You are hiring :</h1>
+            <h1><i class="fas fa-shopping-bag"></i> You are hiring :</h1>
             <% for(let i=0;i<data.length;i++) { %>
             <div class="profile">
                 <img class="pp" src="<%=data[i].pp %>"">
@@ -30,8 +30,8 @@
         
 
             
-            <button class="buttons" type="button">Cancel</button>
-            <button class="buttons" type="button">Confirm</button>
+            <button class="buttons" type="button">Cancel <i class="fas fa-times"></i></button>
+            <button class="buttons" type="button">Confirm <i class="fas fa-check"></i></button>
         
 
 

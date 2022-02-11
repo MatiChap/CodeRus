@@ -9,21 +9,17 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-image: url("/img/bg.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
   height: 100%;
+  position: relative;
   
 }
 #main-header {
-  background-image: linear-gradient(to right, #75b78e, silver, #75b78e);
+  background-color: #364243;
   text-align: center;
   width: 100%;
   position: sticky;
   top: 0px;
   z-index: 10;
-  height: 215px;
   border: solid 2px rgb(56, 66, 67);
 }
 #lupa {
@@ -34,6 +30,8 @@ body {
   transition: all 0.5s;
   border: solid 1px rgb(56, 66, 67);
   box-shadow: 1px 2.5px #88888891;
+  background-color: #353535;
+  color: #6d9b93;
 }
 #lupa :hover {
   transition: 0.5s;
@@ -54,6 +52,9 @@ body {
 #buscador {
   width: 80%;
   margin: auto;
+  background-image: linear-gradient(to bottom right, silver,#2d3636);
+  border-radius: 15px;
+  padding:10px;
 }
 #LogoBig {
   width: 40vw;
@@ -64,25 +65,25 @@ body {
 #promo {
   font-size: 1em;
   font-family: "open sans", sans-serif;
-  color: #384243;
+  color: #dadada;
   text-align: center;
-  margin: 30px 10px 0px 0px;
+  padding:5px;
 }
 #promo em {
   font-size: 25px;
-  color: #646464;
+  color: #6d9b93;
 }
 #navbar {
   display: none;
 }
 #boton {
   text-align: center;
-  color: rgb(219, 217, 118);
+  color: rgb(223, 220, 90);
   font-size: 1.8em;
   display: block;
   border-radius: 12px;
   max-width: 50px;
-  background-color: rgb(56, 66, 67);
+  background-image:linear-gradient(silver,#2d3636);
   max-height: 50px;
   margin: auto;
   padding: 5px;
@@ -91,8 +92,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 45px 0px 85px 0px;
   flex-direction: column;
+  margin:auto;
+  flex-wrap: wrap;
+  width: auto;
+  margin-bottom: 80px;
+  margin-top:30px;
 }
 #LogoTiny {
   width: 60px;
@@ -101,22 +106,44 @@ body {
   align-self: center;
 }
 footer {
-  background-image: linear-gradient(to left, #75b78e, silver, #75b78e);
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  background-color: #384141;
   border: solid 2px rgb(56, 66, 67);
-}
-#contact {
   justify-content: space-evenly;
+  position: fixed;
+  bottom:0;
   display: flex;
-}
-#contact p {
   font-size: 1em;
   font-family: "open sans", sans-serif;
-  color: #2d3636;
+  color: #dadada;
   text-align: center;
+  width: 100%;
 }
+
+#homePics {
+  margin: 100px;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  align-items: center;
+  width: 40%;
+  height: 40%;
+}
+
+.homePic {
+  border-radius: 15px;
+  box-shadow: 1px 1px 4px 1px #0000005e;
+  opacity: 0.5;
+  transition: all 0.5s;
+  width: 100%;
+  height: 100%;
+}
+
+#homePics :hover{
+  transition: 0.5s;
+  opacity: 1;
+
+}
+
 @media (min-width: 760px) {
   #navbar {
     display: flex;
@@ -130,10 +157,11 @@ footer {
     min-height: 48px;
   }
   #botbar {
-    justify-content: space-evenly;
+    justify-content: space-between;
     display: flex;
     align-items: center;
-    margin-bottom: 80px;
+    gap: 40px;
+    margin-top: 50px;
   }
   .navright {
     height: 48px;
@@ -143,7 +171,7 @@ footer {
   }
   #navbar a {
     text-decoration: none;
-    color: #384243;
+    color: #dadada;
     display: inline-block;
     padding: 5px 0px;
     font-family: "open sans", sans-serif;
@@ -157,16 +185,19 @@ footer {
   #navbar li {
     margin: 5px;
     transition: 0.5s;
+    border-radius: 12px;
+    padding:5px;
   }
   #navbar li:hover {
     font-size: 1.2em;
     border-radius: 12px;
-    background-color: #38424333;
+    background-color: #ddd8722f;
 
     transition: 0.5s;
   }
   #navbar li em {
-    color: rgb(20, 20, 20);
+    color: rgb(109, 155, 147);
+    font-size: 1.2em;
   }
   #header {
     display: flex;
@@ -178,6 +209,15 @@ footer {
   #main-header {
     height: 190px;
   }
+  #homePics {
+    flex-direction: row;
+    height: auto;
+    width: auto;
+  }
+  .homePic {
+    min-height:100%;
+    object-fit: cover;
+  }
 }
 @media (min-width: 1280px) {
   #navbar {
@@ -187,15 +227,15 @@ footer {
 }
 
 .form {
-  border: solid 5px #384243;
   display: flex;
   text-align: center;
   flex-direction: column;
-  padding: 5px;
+  padding: 20px;
   border-radius: 15px;
-  background-image: linear-gradient(#75b78e, silver);
+  background-color: #deda6f;
   min-width: 20vw;
   width: 350px;
+  box-shadow: 1px 1px 4px 1px #0000005e;
 }
 
 .input {
@@ -209,30 +249,31 @@ footer {
 .form label {
   font-family: "open sans", sans-serif;
   font-size: 1.1em;
-  background-color: #384243;
-
-  color: #dadada;
+  box-shadow: 1px 1px 4px 1px #0000005e;
+  background-color: #9cd3ca45;
+  color: #2a3233;
   padding: 7px;
   border-radius: 7px;
-  border: ridge 2px #75b78e;
+
 }
 #regtitle {
   font-family: "open sans", sans-serif;
   font-size: 1.8em;
-  color: #dadada;
-  background-color: #384243;
+  color: #2a3233;
   border-radius: 7px;
-  padding: 2px;
-  border: ridge 2px #75b78e;
+  padding: 6px;
+  width:40%;
+  margin: auto;
+  box-shadow: 1px 1px 4px 1px #0000005e;
+  font-weight: lighter;
 }
 
 input.input:nth-child(1) {
   font-size: 1.8em;
-  color: #dadada;
-  background-color: #384243;
+  color: #2d3636;
+  background-color: #0000000c;
   padding: 7px;
   border-radius: 7px;
-  border: ridge 2px #75b78e;
   transition: all 0.5s;
 }
 input.input:nth-child(1):hover {
@@ -240,41 +281,40 @@ input.input:nth-child(1):hover {
 }
 
 #homeCard {
-  background-image: linear-gradient(to left, #75b78e, silver, #75b78e);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   border-radius: 15px;
-  border: ridge 6px #75b78e;
+  box-shadow: #292929;
   font-family: "open sans", sans-serif;
   text-align: center;
-  height: 400px;
-  padding: 15px;
+  padding: 15;
 }
 
 #homeCard h3 {
   font-size: 2em;
-  background-color: rgba(35, 42, 43, 0.705);
-  border-radius: 15px;
+  box-shadow: #292929;
   font-weight: bold;
-  padding: 10px;
-  color:whitesmoke;
+  padding: 20px;
+  color: #292929;
+  box-shadow: 0px 2px #00000042;
 }
 
 #homeCard p {
   color: #2d3636;
+  box-shadow: 0px 1px 0px 0px #00000042;
+  padding:20px;
 }
 
 .buttons {
-  background-color: #374243;
-  color: white;
+  background-color: #deda6f;
   padding: 12px;
   font-family: "open sans", sans-serif;
   font-weight: bold;
   border-radius: 10px;
-  border: ridge 2px #75b78e;
   font-size: 1.5em;
+  color:#2d3636;
 }
 
 #botbar {
@@ -297,13 +337,13 @@ input.input:nth-child(1):hover {
 }
 .profile {
   padding: 10px;
-  border: ridge 2px #75b78e;
   text-align: center;
   font-family: "open sans", sans-serif;
   color: #141414;
   border-radius: 30px;
-  background-image: linear-gradient(#75b78e, silver);
-  max-width: 50%;
+  background-color: #deda6f;
+  box-shadow: 1px 1px 4px 1px #0000005e;
+  max-width: 65%;
   overflow: auto;
   width: 500px;
   max-height: 50%;
@@ -321,17 +361,20 @@ input.input:nth-child(1):hover {
   box-shadow: 5px 10px #88888891;
   border-radius: 10px;
   width: 80%;
+  max-width: 300px;
 }
 .profile h3 {
   font-size: 1.5em;
   text-decoration: underline;
-  color: #2a3233;
+  color: #364243;
+  font-weight: lighter;
 }
 .profile h2 {
-  color: #2a3233;
+  color: #364243;
   border-radius: 15px;
-  background-image: linear-gradient(to bottom right, #dbd976, silver);
-  border: solid 0.5px #384243;
+  box-shadow: 1px 1px 4px 1px #0000005e;
+  background-color: #9cd3ca45;
+  font-weight: lighter;
 }
 .success h4 {
   color: #292929;
@@ -341,20 +384,32 @@ input.input:nth-child(1):hover {
 .myCart h1 {
   font-family: "open sans", sans-serif;
   font-weight: lighter;
-  background-image: linear-gradient(to bottom right, #dbd976, silver);
+  box-shadow: 1px 1px 4px 1px #0000005e;
   border-radius: 15px;
-  padding: 10px;
-  border: solid 0.5px #384243;
+  padding: 15px;
 }
 
 .myCart {
-  background-image: linear-gradient(silver, #75b78e);
   display: flex;
+  box-shadow: 1px 1px 4px 1px #0000005e;
   border-radius: 15px;
   padding: 15px;
   gap: 10px;
-  border: solid 2px #384243;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  background-color: #00000017;
+  width:100%;
+
+}
+
+
+#picsHead {
+  font-family: "open sans",sans-serif;
+  font-weight: bold;
+  margin-top: 100px;
+  margin-bottom: -40px;
+  font-size:2em;
+  color: #292929;
+  box-shadow: 0px 2px #00000042;
 }
