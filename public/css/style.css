@@ -134,8 +134,8 @@ footer {
   box-shadow: 1px 1px 4px 1px #0000005e;
   opacity: 0.5;
   transition: all 0.5s;
+  height: auto;
   width: 100%;
-  height: 100%;
 }
 
 #homePics :hover{
@@ -211,12 +211,13 @@ footer {
   }
   #homePics {
     flex-direction: row;
+    justify-content: space-evenly;
     height: auto;
     width: auto;
   }
   .homePic {
-    min-height:100%;
-    object-fit: cover;
+  width: 50%;
+  align-self: stretch;
   }
 }
 @media (min-width: 1280px) {
