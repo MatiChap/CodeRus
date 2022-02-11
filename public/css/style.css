@@ -25,7 +25,7 @@ body {
 #lupa {
   width: 10%;
   align-self: center;
-  font-size: 20px;
+  font-size: 1rem;
   border-radius: 10px;
   transition: all 0.5s;
   border: solid 1px rgb(56, 66, 67);
@@ -35,7 +35,7 @@ body {
 }
 #lupa :hover {
   transition: 0.5s;
-  font-size: 25px;
+  font-size: 1.2rem;
 }
 #barra {
   width: 85%;
@@ -43,7 +43,7 @@ body {
   height: 20px;
   align-self: center;
   font-family: "open sans", sans-serif;
-  font-size: 1em;
+  font-size: 1rem;
   border: solid 1px rgb(56, 66, 67);
   padding: 10px;
   box-shadow: 1px 2.5px #88888891;
@@ -63,7 +63,7 @@ body {
   margin: 10px;
 }
 #promo {
-  font-size: 1em;
+  font-size: 1rem;
   font-family: "open sans", sans-serif;
   color: #dadada;
   text-align: center;
@@ -79,7 +79,7 @@ body {
 #boton {
   text-align: center;
   color: rgb(223, 220, 90);
-  font-size: 1.8em;
+  font-size: 1.8rem;
   display: block;
   border-radius: 12px;
   max-width: 50px;
@@ -112,7 +112,7 @@ footer {
   position: fixed;
   bottom:0;
   display: flex;
-  font-size: 1em;
+  font-size: 1rem;
   font-family: "open sans", sans-serif;
   color: #dadada;
   text-align: center;
@@ -152,7 +152,7 @@ footer {
     justify-content: space-between;
     text-align: left;
     padding: 0;
-    font-size: 1em;
+    font-size: 1rem;
     margin: 15px;
     font-weight: 550;
     min-height: 48px;
@@ -190,7 +190,7 @@ footer {
     padding:5px;
   }
   #navbar li:hover {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     border-radius: 12px;
     background-color: #ddd8722f;
 
@@ -198,7 +198,7 @@ footer {
   }
   #navbar li em {
     color: rgb(109, 155, 147);
-    font-size: 1.2em;
+    font-size: 1.2rem;
   }
   #header {
     display: flex;
@@ -251,7 +251,7 @@ footer {
 
 .form label {
   font-family: "open sans", sans-serif;
-  font-size: 1.1em;
+  font-size: 1.1rem;
   box-shadow: 1px 1px 4px 1px #0000005e;
   background-color: #9cd3ca45;
   color: #2a3233;
@@ -261,7 +261,7 @@ footer {
 }
 #regtitle {
   font-family: "open sans", sans-serif;
-  font-size: 1.8em;
+  font-size: 1.8rem;
   color: #2a3233;
   border-radius: 7px;
   padding: 6px;
@@ -272,7 +272,7 @@ footer {
 }
 
 input.input:nth-child(1) {
-  font-size: 1.8em;
+  font-size: 1.8rem;
   color: #2d3636;
   background-color: #0000000c;
   padding: 7px;
@@ -280,7 +280,7 @@ input.input:nth-child(1) {
   transition: all 0.5s;
 }
 input.input:nth-child(1):hover {
-  font-size: 1.9em;
+  font-size: 1.9rem;
 }
 
 #homeCard {
@@ -296,7 +296,7 @@ input.input:nth-child(1):hover {
 }
 
 #homeCard h3 {
-  font-size: 2em;
+  font-size: 2rem;
   box-shadow: #292929;
   font-weight: bold;
   padding: 20px;
@@ -316,7 +316,7 @@ input.input:nth-child(1):hover {
   font-family: "open sans", sans-serif;
   font-weight: bold;
   border-radius: 10px;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   color:#2d3636;
 }
 
@@ -328,14 +328,14 @@ input.input:nth-child(1):hover {
   transition: all 0.5s;
 }
 #botbar .buttons:hover {
-  font-size: 1.7em;
+  font-size: 1.7rem;
   transition: 0.5s;
 }
 .buttons {
   transition: all 0.5s;
 }
 .buttons:hover {
-  font-size: 1.7em;
+  font-size: 1.7rem;
   transition: 0.5s;
 }
 .profile {
@@ -367,7 +367,7 @@ input.input:nth-child(1):hover {
   max-width: 300px;
 }
 .profile h3 {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   text-decoration: underline;
   color: #364243;
   font-weight: lighter;
@@ -411,9 +411,9 @@ input.input:nth-child(1):hover {
 #picsHead {
   font-family: "open sans",sans-serif;
   font-weight: bold;
-  margin-top: 100px;
+  margin-top: 150px;
   margin-bottom: -40px;
-  font-size:2em;
+  font-size:2rem;
   color: #292929;
   box-shadow: 0px 2px #00000042;
 }
