@@ -17,33 +17,35 @@
 <body>
     <%- include('./partials/header') %>
     <div id="bodyMain">
-        <div class="myCart">
-            <h1><i class="fas fa-shopping-bag"></i> You are hiring :</h1>
-            <% for(let i=0;i<data.length;i++) { %>
-            <div class="profile">
-                <img class="pp" src="<%=data[i].pp %>"">
-                <h3><%=data[i].name %></h3>
-                <h2><%=data[i].price %></h2>
-            </div>
-            <% } %>
-            <h1>Total payment agreed upon : $60/hr </h1>
-        
+    
+    <form class="form" action="/edit/<%= userToEdit.id %>?_method=PUT" method="POST">
+        <h1 id="regtitle">Edit profile:</h1>
+      <p>      
+        <label>Your full name: </label>
+        <br></br>
+            <input class="input" type="text" name="name" placeholder="<%= userToEdit.name %>">
+      </p>
+      <p>
+          <label>Your description: </label>
+          <br></br>
+          <textarea class="input" name="desc" placeholder="<%= userToEdit.desc %>"></textarea>
+      </p>
+      <p>
+          <label>Your price: </label>
+          <br></br>
+          <input class="input" type="text" name="price" placeholder="<%= userToEdit.price %>">
+      </p>
+      
 
-            
-            <button class="buttons" type="button">Cancel <i class="fas fa-times"></i></button>
-            <button class="buttons" type="button">Confirm <i class="fas fa-check"></i></button>
-        
+      <input class="input" type="submit" name="button" value="Update">
 
 
-        </div>
+    </form>
     </div>
-    <br></br>
-    <br></br>
 </body>
 <footer>
     <%- include('./partials/footer') %>
 </footer>
-
 
 
 </html>

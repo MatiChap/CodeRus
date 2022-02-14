@@ -126,8 +126,7 @@ footer {
   flex-direction: column;
   gap:10px;
   align-items: center;
-  width: 40%;
-  height: 40%;
+  width: 80%;
 }
 
 .homePic {
@@ -202,6 +201,18 @@ input.input:nth-child(1):hover {
   font-size: 1.9rem;
 }
 
+input.input:nth-child(5) {
+  font-size: 1.8rem;
+  color: #2d3636;
+  background-color: #0000000c;
+  padding: 7px;
+  border-radius: 7px;
+  transition: all 0.5s;
+}
+input.input:nth-child(5):hover {
+  font-size: 1.9rem;
+}
+
 #homeCard {
   display: flex;
   flex-direction: column;
@@ -245,6 +256,7 @@ input.input:nth-child(1):hover {
 }
 #botbar .buttons {
   transition: all 0.5s;
+  margin:5px;
 }
 #botbar .buttons:hover {
   font-size: 1.7rem;
@@ -333,7 +345,7 @@ input.input:nth-child(1):hover {
   font-weight: bold;
   margin-top: 150px;
   margin-bottom: -40px;
-  font-size:2rem;
+  font-size:1.5rem;
   color: #292929;
   box-shadow: 0px 2px #00000042;
   text-align: center;
@@ -347,7 +359,6 @@ input.input:nth-child(1):hover {
     text-align: left;
     padding: 0;
     font-size: 1rem;
-    margin: 15px;
     font-weight: 550;
     min-height: 48px;
   }
@@ -401,6 +412,9 @@ input.input:nth-child(1):hover {
   #boton {
     display: none;
   }
+  #promo {
+    margin-top: 50px;
+  }
   #main-header {
     height: 190px;
   }
@@ -408,14 +422,14 @@ input.input:nth-child(1):hover {
     flex-direction: row;
     justify-content: space-evenly;
     height: auto;
-    width: auto;
+    width: 95%;
   }
   .homePic {
   width: 50%;
   align-self: stretch;
   }
   .profile {
-    width: 70%;
+    width: 50%;
   }
 }
 @media (min-width: 1280px) {

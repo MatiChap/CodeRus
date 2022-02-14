@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>CodeRus - Register</title>
-    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300&family=Roboto:wght@400;900&display=swap" rel="stylesheet"> 
@@ -17,41 +17,42 @@
 <body>
     <%- include('./partials/header') %>
     <div id="bodyMain">
-        <form class="form" action="/register" method="post">
+        <form method="POST" class="form"  action="/user/register">
             <h1 id="regtitle">Sign-In  <i class="fas fa-arrow-to-right"></i></h1>
             <p>
-                <label>Name</label>
+                <label for="username">Name</label>
                 <br></br>
-                <input class="input" type="text" name="name" required>
+                <input class="input" type="text" name="username">
             </p>
 
             <p>
-                <label>Surname</label>
+                <label for="surname">Surname</label>
                 <br></br>
-                <input class="input" type="text" name="surname" required>
+                <input class="input" type="text" name="surname">
             </p>
     
             <p>
-                <label>E-mail</label>
+                <label for="email">E-mail</label>
                 <br></br>
-                <input class="input" type="email" name="email" required>
+                <input class="input" type="email" name="email">
             </p>
     
             <p>
-                <label>Password</label>
+                <label for="password">Password</label>
                 <br></br>
-                <input class="input" type="password" name="password" required>
+                <input class="input" type="password" name="password"></input>
             </p>
             <p>
                 
-                <input type="radio" name="legalage" value="Yes" required>
+                <input type="radio" name="legalage" value="Yes" required></input>
                 <label>I am 18 years old or older.</label>
     
             <p>
-                <input class="input" type="submit" name="button" value="Create your account">
+                <input class="input" type="submit" name="button" value="Create your account"></input>
             </p>
     
         </form>
+
         
 
     </div>

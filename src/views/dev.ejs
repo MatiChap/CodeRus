@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>CodeRus - Developer</title>
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300&family=Roboto:wght@400;900&display=swap" rel="stylesheet"> 
@@ -30,6 +30,10 @@
             <p><%=data[i].name %> has been hired on codeRus for <%=data[i].total %> projects, and succesfully completed <%=data[i].completed %>.</p>
             <h4>Success rate: <%=data[i].rate %></h4>
             </div>
+            <a href='/edit/<%=data[i].id %>'><button class="buttons" type="button">Admin edit <em><i class="fas fa-user"></i></em></button></a>
+            <form class="form" action="/dev/<%=data[i].id %>?_method=DELETE" method="POST">
+                <input class="input" type="submit" name="button" value="Delete">
+            </form>
         </div>
         <% } %>
         
