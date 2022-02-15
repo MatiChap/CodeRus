@@ -18,26 +18,34 @@
     <%- include('./partials/header') %>
     <div id="bodyMain">
     
-    <form class="form" action="/edit/<%= userToEdit.id %>?_method=PUT" method="POST">
+    <form class="form" action="/edit/<%= userToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
         <h1 id="regtitle">Edit profile:</h1>
       <p>      
-        <label>Your full name: </label>
+        <label for="name">Your full name: </label>
         <br></br>
-            <input class="input" type="text" name="name" placeholder="<%= userToEdit.name %>">
+            <input class="input" type="text" name="name">
       </p>
       <p>
-          <label>Your description: </label>
+          <label for="desc">Your description: </label>
           <br></br>
-          <textarea class="input" name="desc" placeholder="<%= userToEdit.desc %>"></textarea>
+          <textarea class="input" type="text" name="desc" ></textarea>
       </p>
       <p>
-          <label>Your price: </label>
+          <label for="price">Your price: </label>
           <br></br>
-          <input class="input" type="text" name="price" placeholder="<%= userToEdit.price %>">
+          <input class="input" type="text" name="price">
+      </p>
+      <p>
+        <label for="pp" >Profile Picture</label>  
+        <br></br>
+        <br></br>       
+        <input type="file" name="pp"></input>
+        
+
       </p>
       
 
-      <input class="input" type="submit" name="button" value="Update">
+      <input class="input" type="submit" value="Update"></input>
 
 
     </form>

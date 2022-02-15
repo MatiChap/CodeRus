@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang=es>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>CodeRus - Developer</title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300&family=Roboto:wght@400;900&display=swap" rel="stylesheet"> 
+</head>
+
+
+<body>
+    <%- include('./partials/header') %>
+    <div id="bodyMain">
+
+        <div class="profile">
+          <img class="pp" src="<%=data.pp %>"">
+        <h3> <%=data.name %> </h3>
+        <p> <%=data.desc %></p>
+        <div id="profileactions">
+            
+            <button class="buttons" type="button"><i class="fas fa-user-check"></i> Hire Now:$ <%=data.price %> /hr</button>
+        </div>
+        <div class="success">
+            <p><%=data.name %> has been hired on codeRus for <%=data.total %> projects, and succesfully completed <%=data.completed %>. Their success rate is: <%=data.rate %>.</p>
+        
+            </div>
+            
+        </div>
+       
+        
+
+    </div>
+    <br></br>
+    <br></br>
+</body>
+<footer>
+    <%- include('./partials/footer') %>
+</footer>
+
+
+
+</html>

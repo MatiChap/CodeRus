@@ -17,19 +17,18 @@
 <body>
     <%- include('./partials/header') %>
     <div id="bodyMain">
+        <a href="/newdev"><button class="buttons" type="button"><i class="fas fa-laptop"></i> Create your Developer Profile</button></a>
         <% for(let i=0;i<data.length;i++) { %>
         <div class="profile">
+            <div id="ppcontainer">
           <img class="pp" src="<%=data[i].pp %>"">
+            </div>
         <h3> <%=data[i].name %> </h3>
         <p> <%=data[i].desc %></p>
         <div id="profileactions">
-            <button class="buttons" type="button"><i class="fas fa-user"></i> Profile</button>
-            <button class="buttons" type="button"><i class="fas fa-user-check"></i> Hire Now:<%=data[i].price %></button>
+            <a href="devProfile/<%=data[i].id %>"><button class="buttons" type="button"><i class="fas fa-user"></i> Profile</button></a>
+            <button class="buttons" type="button"><i class="fas fa-user-check"></i> Hire Now:$ <%=data[i].price %> /hr</button>
         </div>
-        <div class="success">
-            <p><%=data[i].name %> has been hired on codeRus for <%=data[i].total %> projects, and succesfully completed <%=data[i].completed %>.</p>
-            <h4>Success rate: <%=data[i].rate %></h4>
-            </div>
             <a href='/edit/<%=data[i].id %>'><button class="buttons" type="button">Admin edit <em><i class="fas fa-user"></i></em></button></a>
             <form class="form" action="/dev/<%=data[i].id %>?_method=DELETE" method="POST">
                 <input class="input" type="submit" name="button" value="Delete">

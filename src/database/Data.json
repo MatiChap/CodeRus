@@ -1,0 +1,36 @@
+[
+ {
+  "id": 0,
+  "name": "Jonas Johnson Jones",
+  "price": "25",
+  "desc": "Hi, my name is Jonas Johnson Jones. I was born in Iran in 1992. Since 2010 I have been developing projects and websites on various platforms. I am also an experienced programmer in Blockchain, Python and NodeJS.",
+  "pp": "/img/pp.jpg",
+  "rate": "57.1%",
+  "completed": 4,
+  "total": 7
+ },
+ {
+  "id": 1,
+  "name": "Naomi Cheng",
+  "price": "35",
+  "desc": "Hello, I am Naomi Cheng. Born in Taiwan in 1990, I dedicated to back-end programming since 2008 and am very experienced with almost every language. Programming is my passion!",
+  "pp": "/img/pp2.jpg",
+  "rate": "70%",
+  "completed": 7,
+  "total": 10
+ },
+ {
+  "id": 2,
+  "name": "Graciela Merín",
+  "desc": "Hey, I'm a programmer born in Venezuela very skilled in Python and Rust. Also I get along very well with my colleagues!",
+  "price": "35",
+  "pp": "/img/pp/1644961291249_img_.jpeg"
+ },
+ {
+  "name": "Chad Bröomen",
+  "desc": "Hello, I am Chad. I am from Finland and have been web developing for 8 years. My areas of expertise are HTML and CSS styling.",
+  "pp": "/img/pp/1644961813109_img_.jpg",
+  "price": "20",
+  "id": 3
+ }
+]

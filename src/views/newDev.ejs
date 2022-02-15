@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang=es>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>CodeRus - Register</title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300&family=Roboto:wght@400;900&display=swap" rel="stylesheet"> 
+</head>
+
+
+<body>
+    <%- include('./partials/header') %>
+    <div id="bodyMain">
+        <form method="POST" class="form"  action="/newDev" enctype="multipart/form-data">
+            <h1 id="regtitle">New Dev Profile</h1>
+            <p>
+                <label for="name">Full Name: </label>
+                <br></br>
+                <input class="input" type="text" name="name">
+            </p>
+    
+            <p>
+                <label for="desc">Description:</label>
+                <br></br>
+                <textarea class="input" name="desc">Describe yourself here!</textarea>
+            </p>
+    
+            <p>
+                <label for="price">Price:</label>
+                <br></br>
+                <input class="input" type="number" name="price"></input>
+            </p>
+            <p>
+                <label for="pp" >Profile Picture</label>
+                <br></br>
+                <br></br>
+                <input type="file" name="pp"></input>
+                
+    
+            <p>
+                <input class="input" type="submit" value="Create profile"></input>
+            </p>
+    
+        </form>
+
+        
+
+    </div>
+</body>
+<br></br>
+<br></br>
+<footer>
+    <%- include('./partials/footer') %>
+</footer>
+
+
+
+</html>
