@@ -223,7 +223,13 @@ input.input:nth-child(5):hover {
   text-align: center;
   padding: 15;
 }
-
+.errors {
+  color: red;
+  font-family: "open sans", sans-serif;
+  border-radius: 15px;
+  background-color: rgba(255, 0, 0, 0.205);
+  padding: 7px;
+}
 #homeCard h3 {
   font-size: 2rem;
   box-shadow: #292929;

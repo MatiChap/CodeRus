@@ -17,12 +17,24 @@
 <body>
     <%- include('./partials/header') %>
     <div id="bodyMain">
-        <form method="POST" class="form"  action="/newDev" enctype="multipart/form-data">
+
+        <% if (locals.errors) { 
+            errors.forEach(error => { %>
+            <p class="errors"><i class="fal fa-times-hexagon"></i> 
+
+                <%= error.msg %></p>
+        <%    })
+         } %>
+         
+        
+        
+       
+        <form method="POST" class="form"  action="/newDev" validate="true" enctype="multipart/form-data">
             <h1 id="regtitle">New Dev Profile</h1>
             <p>
                 <label for="name">Full Name: </label>
                 <br></br>
-                <input class="input" type="text" name="name">
+                <input class="input" type="text" name="name"></input>
             </p>
     
             <p>
@@ -40,7 +52,7 @@
                 <label for="pp" >Profile Picture</label>
                 <br></br>
                 <br></br>
-                <input type="file" name="pp"></input>
+                <input type="file" name="pp" required></input>
                 
     
             <p>

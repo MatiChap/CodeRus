@@ -17,13 +17,20 @@
 <body>
     <%- include('./partials/header') %>
     <div id="bodyMain">
+        <% if (locals.errors) { 
+            errors.forEach(error => { %>
+            <p class="errors"><i class="fal fa-times-hexagon"></i> 
+
+                <%= error.msg %></p>
+        <%    })
+         } %>
     
     <form class="form" action="/edit/<%= userToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
         <h1 id="regtitle">Edit profile:</h1>
       <p>      
         <label for="name">Your full name: </label>
         <br></br>
-            <input class="input" type="text" name="name">
+            <input class="input" type="text" name="name"></input>
       </p>
       <p>
           <label for="desc">Your description: </label>
@@ -33,13 +40,13 @@
       <p>
           <label for="price">Your price: </label>
           <br></br>
-          <input class="input" type="text" name="price">
+          <input class="input" type="number" name="price"></input>
       </p>
       <p>
         <label for="pp" >Profile Picture</label>  
         <br></br>
         <br></br>       
-        <input type="file" name="pp"></input>
+        <input type="file" name="pp" required></input>
         
 
       </p>
