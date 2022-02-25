@@ -8,10 +8,28 @@ const storage = multer.diskStorage({
         filename: function (req, file, cb) { 
            cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`);  } 
       });
-const upload = multer({ storage:storage });
+
+      const fileFilter = (req, file, cb) => {
+        if ((file.mimetype).includes('jpeg') || (file.mimetype).includes('png') || (file.mimetype).includes('jpg')) {
+            cb(null, true);
+        } else {
+           // cb(new multer.MulterError('not a PNG'), false);
+            //cb(null,false);
+            return cb(new Error('No es una imagen'));
+        }
+    };
+    
+    
+    const limits = {
+        fileSize: 1024 * 1024 * 2, // tamaño en bytes, 2 mb 
+        fieldNameSize: 200
+    }
+const upload = multer({ storage:storage, fileFilter: fileFilter, limits: limits });
 const { validationResult } = require('express-validator');
 const dataFilePath = path.join(__dirname, '../database/Data.json');
-const devs = JSON.parse(fs.readFileSync(dataFilePath, 'utf-8'));
+let devs = JSON.parse(fs.readFileSync(dataFilePath, 'utf-8'));
+const sharp=require('sharp');
+
 
 const controlador = {
 index: (req, res) => {	
@@ -19,7 +37,7 @@ index: (req, res) => {
 },
 
 dev: (req, res) => {
-    
+devs = JSON.parse(fs.readFileSync(dataFilePath, 'utf-8'));
     res.render('dev',{data: devs});
 },
 newDevForm: (req,res) => {
@@ -30,7 +48,8 @@ newDevForm: (req,res) => {
 newDevCreate: (req,res) => {
         
         let errors = validationResult(req);
-        if(errors.isEmpty()){
+        console.log(req.file)
+        if(errors.isEmpty() && req.file.mimetype == 'image/jpeg' || req.file.mimetype == 'image/jpg' || req.file.mimetype == 'image/png'){
                 let id = devs[devs.length-1].id +1;
        
         let {name, desc, pp, price} = req.body
@@ -38,13 +57,14 @@ newDevCreate: (req,res) => {
         let newDev = {name, desc, pp, price, id};
 
         
-        
+
         
 
         devs.push(newDev);
        
        fs.writeFileSync(dataFilePath, JSON.stringify(devs,null,' '));
        res.redirect('/dev') ;
+       
 
         }else{
                 res.render('newDev', {errors: errors.array(), old: req.body})
@@ -62,8 +82,18 @@ newDevCreate: (req,res) => {
 },
 deletedev: function(req,res){
            let list = devs.filter((dev) => dev.id != req.params.id);
+          let devdelete;
+           for(let e of devs){
+                   if( e.id == req.params.id){
+                         devdelete = e;
+                        break;
+        }
+
+        }
+        fs.unlinkSync(path.join(__dirname, '../../public/', devdelete.pp))
+           
            fs.writeFileSync(dataFilePath, JSON.stringify(list,null,' '));
-           res.render('dev',{data:list});
+           res.redirect('/dev');
         
         
 },

@@ -27,17 +27,10 @@
   "pp": "/img/pp/1644961291249_img_.jpeg"
  },
  {
-  "name": "Chad Bröomen",
-  "desc": "Hello, I am Chad. I am from Finland and have been web developing for 8 years. My areas of expertise are HTML and CSS styling.",
-  "pp": "/img/pp/1644961813109_img_.jpg",
-  "price": "20",
+  "name": "Chad Brooman",
+  "desc": "Hello, I am a developer from Finland. My best fields are CSS styling and HTML structuring.",
+  "pp": "/img/pp/1645667238696_img_.jpg",
+  "price": "30",
   "id": 3
- },
- {
-  "name": "Steve Carell",
-  "desc": "Hi! I'm here because I want to. Have a good day!",
-  "pp": "/img/pp/1645226950635_img_.jpg",
-  "price": "1000",
-  "id": 4
  }
 ]
