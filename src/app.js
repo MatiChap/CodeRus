@@ -9,6 +9,8 @@ const methodOverride = require('method-override');
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended:false }));
 app.use(express.json());
+const session = require('express-session');
+app.use(session({secret:'coderus is secret'}));
 
 
 
