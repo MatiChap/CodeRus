@@ -17,18 +17,19 @@
 <body>
     <%- include('./partials/header') %>
     <div id="bodyMain">
+        <% if (locals.errors) { 
+            errors.forEach(error => { %>
+            <p class="errors"><i class="fal fa-times-hexagon"></i> 
+
+                <%= error.msg %></p>
+        <%    })
+         } %>
         <form method="POST" class="form"  action="/user/register">
             <h1 id="regtitle">Sign-In  <i class="fas fa-arrow-to-right"></i></h1>
             <p>
-                <label for="username">Name</label>
+                <label for="username">Username</label>
                 <br></br>
                 <input class="input" type="text" name="username">
-            </p>
-
-            <p>
-                <label for="surname">Surname</label>
-                <br></br>
-                <input class="input" type="text" name="surname">
             </p>
     
             <p>

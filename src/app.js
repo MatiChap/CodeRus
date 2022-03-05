@@ -11,6 +11,7 @@ app.use(express.urlencoded({ extended:false }));
 app.use(express.json());
 const session = require('express-session');
 app.use(session({secret:'coderus is secret'}));
+const bcrypt = require('bcryptjs');
 
 
 

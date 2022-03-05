@@ -23,24 +23,24 @@ body {
   border: solid 2px rgb(56, 66, 67);
 }
 #lupa {
-  width: 10%;
-  align-self: center;
+  height: 50px;
+  width: 50px;
   font-size: 1rem;
   border-radius: 10px;
-  transition: all 0.5s;
   border: solid 1px rgb(56, 66, 67);
   box-shadow: 1px 2.5px #88888891;
-  background-color: #353535;
-  color: #6d9b93;
+  background-color: #343535;
+ color: #fff;
 }
 #lupa :hover {
   transition: 0.5s;
+  
   font-size: 1.2rem;
 }
 #barra {
   width: 85%;
   border-radius: 15px;
-  height: 20px;
+  height: 100%;
   align-self: center;
   font-family: "open sans", sans-serif;
   font-size: 1rem;
@@ -50,9 +50,12 @@ body {
 }
 
 #buscador {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 80%;
   margin: auto;
-  background-image: linear-gradient(to bottom right, silver,#2d3636);
+  background-color: #deda6fd9;
   border-radius: 15px;
   padding:10px;
 }
@@ -406,9 +409,11 @@ input.input:nth-child(5):hover {
   }
   #navbar a {
     text-decoration: none;
-    color: #dadada;
+    color: #fffefe;
     display: inline-block;
     padding: 5px 0px;
+    font-size: 1.1rem;
+    transition: 0.5s;
     font-family: "open sans", sans-serif;
   }
   #navbar ul {
@@ -422,6 +427,10 @@ input.input:nth-child(5):hover {
     transition: 0.5s;
     border-radius: 12px;
     padding:5px;
+  }
+  #navbar a:hover{
+    font-size: 1.3rem;
+    transition: 0.5s;
   }
   #navbar li:hover {
     font-size: 1.2rem;
@@ -444,9 +453,7 @@ input.input:nth-child(5):hover {
   #promo {
     margin-top: 50px;
   }
-  #main-header {
-    height: 190px;
-  }
+  
   #homePics {
     flex-direction: row;
     justify-content: space-evenly;

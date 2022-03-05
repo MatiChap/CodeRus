@@ -17,7 +17,14 @@
 <body>
     <%- include('./partials/header') %>
     <div id="bodyMain">
-        <form class="form" action="registro" method="post">
+        <% if (locals.errors) { 
+            errors.forEach(error => { %>
+            <p class="errors"><i class="fal fa-times-hexagon"></i> 
+
+                <%= error.msg %></p>
+        <%    })
+         } %>
+        <form class="form" action="login" method="post">
             <h1 id="regtitle">Log-In  <i class="fas fa-sign-in"></i></i></h1>
             <p>
                 <label>E-mail</label>
