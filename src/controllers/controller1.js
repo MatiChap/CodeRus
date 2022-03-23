@@ -33,16 +33,17 @@ const sharp=require('sharp');
 
 const controlador = {
 index: (req, res) => {	
-        res.render('home');
+        
+        res.render('home', {user:req.session.loggedUser}); 
 },
 
 dev: (req, res) => {
 devs = JSON.parse(fs.readFileSync(dataFilePath, 'utf-8'));
-    res.render('dev',{data: devs});
+    res.render('dev',{data: devs,user:req.session.loggedUser});
 },
 newDevForm: (req,res) => {
         
-        res.render('newDev')
+        res.render('newDev', {user:req.session.loggedUser})
         
 },
 newDevCreate: (req,res) => {
@@ -67,7 +68,7 @@ newDevCreate: (req,res) => {
        
 
         }else{
-                res.render('newDev', {errors: errors.array(), old: req.body})
+                res.render('newDev', {errors: errors.array(), old: req.body, user:req.session.loggedUser})
         }
 
         
@@ -106,7 +107,7 @@ for(let d of devs){
 
         }
 }
-res.render('devProfile', {data: profile});
+res.render('devProfile', {data: profile, user:req.session.loggedUser});
 },
 edit: (req,res) => {
         
@@ -115,7 +116,7 @@ edit: (req,res) => {
 
         let devEdit = devs[idDev];
 
-        res.render('edit', {userToEdit: devEdit})
+        res.render('edit', {userToEdit: devEdit, user:req.session.loggedUser})
            
 },
 
@@ -140,7 +141,7 @@ edited:function (req,res) {
          res.redirect('/');       
         }else{
                 
-                res.render('edit', {errors: errors.array(), old: req.body, userToEdit: devEdit})     
+                res.render('edit', {errors: errors.array(), old: req.body, userToEdit: devEdit, user:req.session.loggedUser})     
         }
         
         },
@@ -151,7 +152,7 @@ edited:function (req,res) {
 
 cart: (req, res) => {
     
-    res.render('cart',{data:devs});
+    res.render('cart',{data:devs, user:req.session.loggedUser});
 
 }
 }

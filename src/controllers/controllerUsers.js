@@ -73,6 +73,9 @@ userLogin: (req,res)=> {
 }else{
     res.render('login', {errors: errors.array(), old: req.body})
 }
+},
+profile: (req,res)=> {
+    res.render('userprofile', {user:req.session.loggedUser})
 }
 };
 

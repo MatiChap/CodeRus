@@ -30,7 +30,7 @@ routerUsers.post('/login',[
  
  ], userControl.userLogin)
 
-
+routerUsers.get('/profile', userControl.profile)
 
 
 

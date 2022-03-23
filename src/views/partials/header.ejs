@@ -18,11 +18,24 @@
                     <li><a href='#'> Help</a></li>
     
                 </ul>
-                <ul class="navright">
+                <% if (locals.user) { %>
+         
+                    <ul class="navright">
+                    
+                    <p id="greeting">Logged in as: <%=user.username %>.</p>
+                    <li><a href='/user/profile'> My Profile <em><i class="fas fa-user"></i></em></a></li>
+                    <li><a href='/cart'> Cart <em><i class="fas fa-shopping-cart"></i></em></a></li>
+                     </ul>
+                        
+                   
+                 <% }else{ %><ul class="navright">
+                    
                     <li><a href='/user/register'> Register <em><i class="far fa-id-badge"></i></em></a></li>
                     <li><a href='/user/login'> Log In <em><i class="fas fa-user"></i></em></a></li>
                     <li><a href='/cart'> Cart <em><i class="fas fa-shopping-cart"></i></em></a></li>
-                </ul>
+                     </ul>
+                     <% } %>
+               
         </nav>
         <a href="#" id="boton"><i class="fas fa-align-justify"></i></a>
             

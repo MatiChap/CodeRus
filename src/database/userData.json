@@ -8,5 +8,20 @@
   "username": "matichapot",
   "password": "$2a$10$jx8FCiXAABTra/cfNeMwAeSTWPD4Oh/g8FuIVZwuipRJdgFonkTeu",
   "email": "matichapot1@live.com"
+ },
+ {
+  "username": "elguachin",
+  "password": "$2a$10$rwpS49ryz4sMzM8vpF2QreohO973BM.u58c61Wn/A1gQzl2FOsn2y",
+  "email": "guacho@guacho.com"
+ },
+ {
+  "username": "aaaaaaa",
+  "password": "$2a$10$K49YTyZBDXEy8SgkoUSUCeMGJOjEY3xlxwQ48oehNWr8GF6R4cg1a",
+  "email": "polo@hotmail.com"
+ },
+ {
+  "username": "Test User",
+  "password": "$2a$10$2ZHrHXmmqa4Yb84O3g89Hu4AKmZKZnck8RkQ15gHanQhugr0vWKQi",
+  "email": "test@hotmail.com"
  }
 ]

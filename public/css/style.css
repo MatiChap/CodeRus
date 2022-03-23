@@ -27,6 +27,7 @@ body {
   width: 50px;
   font-size: 1rem;
   border-radius: 10px;
+  transition: 0.5s;
   border: solid 1px rgb(56, 66, 67);
   box-shadow: 1px 2.5px #88888891;
   background-color: #343535;
@@ -34,8 +35,7 @@ body {
 }
 #lupa :hover {
   transition: 0.5s;
-  
-  font-size: 1.2rem;
+  color: #deda6f;
 }
 #barra {
   width: 85%;
@@ -55,7 +55,7 @@ body {
   align-items: center;
   width: 80%;
   margin: auto;
-  background-color: #deda6fd9;
+  background-color: silver;
   border-radius: 15px;
   padding:10px;
 }
@@ -416,6 +416,17 @@ input.input:nth-child(5):hover {
     transition: 0.5s;
     font-family: "open sans", sans-serif;
   }
+  #greeting {
+    color: #2d3636;
+    align-self: center;
+    padding: 10px 10px;
+    font-size: 1.1rem;
+    background-color: #deda6f;
+    border-radius: 10px;
+    border: ridge 2px silver;
+    font-family: "open sans", sans-serif;
+  }
+  
   #navbar ul {
     margin: 0;
     padding: 0;
