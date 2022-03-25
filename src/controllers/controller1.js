@@ -154,6 +154,10 @@ cart: (req, res) => {
     
     res.render('cart',{data:devs, user:req.session.loggedUser});
 
+},
+logout: (req,res) => {
+        delete req.session.loggedUser;
+        res.redirect('/')
 }
 }
 

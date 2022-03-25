@@ -43,4 +43,6 @@ router.get('/edit/:id',controller1.edit);
 
 router.put('/edit/:id', upload.single("pp"), validation, controller1.edited);
 
+router.get('/logout', controller1.logout)
+
 module.exports = router;
