@@ -76,6 +76,39 @@ userLogin: (req,res)=> {
 },
 profile: (req,res)=> {
     res.render('userprofile', {user:req.session.loggedUser})
+},
+editProfile: (req,res) => {
+    res.render('editprofile', {user:req.session.loggedUser})
+},
+editedProfile: (req,res)=> {
+    let errors = validationResult(req);
+        if(errors.isEmpty()){
+       
+        let email = req.body.email;
+        psswrd = req.body.password;
+        password = bcrypt.hashSync(psswrd , 10);
+        
+        let editedUser = {password, email};
+        for(let i=0;i<users.length;i++){
+            if(users[i].email == req.session.loggedUser.email){
+               users[i] = {...users[i], ...editedUser};
+               console.log(users[i]);
+                break;
+                
+            }
+        }
+        
+       
+       fs.writeFileSync(dataFilePath, JSON.stringify(users,null,' '));
+       
+       
+        delete req.session.loggedUser;
+       res.redirect('/') ;
+       
+
+        }else{
+                res.render('editProfile', {errors: errors.array(), old: req.body, user:req.session.loggedUser})
+        }
 }
 };
 

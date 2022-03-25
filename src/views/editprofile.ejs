@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang=es>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>CodeRus - Cart</title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300&family=Roboto:wght@400;900&display=swap" rel="stylesheet"> 
+</head>
+
+
+<body>
+    <%- include('./partials/header') %>
+    <div id="bodyMain">
+        <% if (locals.errors) { 
+            errors.forEach(error => { %>
+            <p class="errors"><i class="fal fa-times-hexagon"></i> 
+
+                <%= error.msg %></p>
+        <%    })
+         } %>
+    <% if(locals.user) { %>
+    <form class="form" action="/user/editProfile?_method=PUT" method="POST">
+        <h1 id="regtitle">Edit profile:</h1>
+      <p>      
+        <label for="name">Your email: </label>
+        <br></br>
+            <input class="input" type="email" name="email" value="<%=user.email %>"></input>
+      </p>
+      <p>
+          <label for="desc">Your password: </label>
+          <br></br>
+          <input class="input" type="text" name="password" value="******"></input>
+      </p>
+      
+      </p>
+      
+
+      <input class="input" type="submit" value="Update"></input>
+
+
+    </form>
+    <% }else{ %>
+        <p class="errors"><i class="fal fa-times-hexagon"></i> 
+
+            You are not logged in!</p>
+        <% } %>
+    </div>
+</body>
+<footer>
+    <%- include('./partials/footer') %>
+</footer>
+
+
+</html>

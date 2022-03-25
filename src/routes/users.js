@@ -30,7 +30,18 @@ routerUsers.post('/login',[
  
  ], userControl.userLogin)
 
-routerUsers.get('/profile', userControl.profile)
+routerUsers.get('/profile', userControl.profile);
+
+routerUsers.get('/editProfile', userControl.editProfile);
+
+routerUsers.put('/editProfile',[
+   body("email").notEmpty().withMessage('Please insert your email in the form.').bail()
+   .isEmail().withMessage('Invalid email') ,
+   body("password").notEmpty().withMessage('Please enter your password in the form.').bail()
+   .isLength({min:5}).withMessage('That password is too short!(Min characters:5)')
+   .isLength({max:20}).withMessage('That password is too long! (Max characters:20)')
+
+], userControl.editedProfile);
 
 
 
