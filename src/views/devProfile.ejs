@@ -19,12 +19,14 @@
     <div id="bodyMain">
 
         <div class="profile">
-          <img class="pp" src="<%=data.pp %>"">
+            <div id="ppcontainer">
+                <img class="pp" src="<%=data.picture%>">
+                  </div>
         <h3> <%=data.name %> </h3>
-        <p> <%=data.desc %></p>
+        <p> <%=data.description %></p>
         <div id="profileactions">
             
-            <button class="buttons" type="button"><i class="fas fa-user-check"></i> Hire Now:$ <%=data.price %> /hr</button>
+            <button class="buttons" type="button"><i class="fas fa-user-check"></i> Add to team</button>
         </div>
         <div class="success">
             <p><%=data.name %> has been hired on codeRus for <%=data.total %> projects, and succesfully completed <%=data.completed %>. Their success rate is: <%=data.rate %>.</p>

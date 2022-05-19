@@ -25,34 +25,32 @@
         <%    })
          } %>
     
-    <form class="form" action="/edit/<%= userToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+    <form class="form" action="/edit/<%= dev.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
         <h1 id="regtitle">Edit profile:</h1>
       <p>      
-        <label for="name">Your full name: </label>
+        <label for="name">Full name</label>
         <br></br>
-            <input class="input" type="text" name="name" value="<%=userToEdit.name %>"></input>
+            <input class="input" type="text" name="name" value="<%=dev.name %>"></input>
       </p>
       <p>
-          <label for="desc">Your description: </label>
+          <label for="description">Brief description</label>
           <br></br>
-          <textarea class="input" type="text" name="desc" value="<%=userToEdit.desc %>"></textarea>
-      </p>
-      <p>
-          <label for="price">Your price: </label>
-          <br></br>
-          <input class="input" type="number" name="price" value="<%=userToEdit.price %>"></input>
+          <textarea class="input" type="text" name="description" value="<%=dev.description %>"></textarea>
       </p>
       <p>
         <label for="pp" >Profile Picture</label>  
         <br></br>
+        <div id="ppcontainer">
+        <img class="pp" src="<%=dev.picture %>"">
+        </div>
         <br></br>       
-        <input type="file" name="pp" required></input>
+        <input type="file" name="picture" required></input>
         
 
       </p>
       
 
-      <input class="input" type="submit" value="Update"></input>
+      <input class="buttons" type="submit" value="Update"></input>
 
 
     </form>

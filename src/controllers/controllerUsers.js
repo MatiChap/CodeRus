@@ -1,37 +1,39 @@
 const path = require('path');
 const fs = require('fs');
 const dataFilePath = path.join(__dirname, '../database/userData.json');
-let users = JSON.parse(fs.readFileSync(dataFilePath, 'utf-8'));
+//let users = JSON.parse(fs.readFileSync(dataFilePath, 'utf-8'));//
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs/dist/bcrypt');
 
 
 
-
+let db = require('../../database/models')
 
 const userControl = 
 {
+        //-------------------------USER REGISTER FORM---------------------
 register: (req, res) => {
     res.render('register');
 },
-
+    //-------------------------USER REGISTER FUNCTION----------------------
 create: function(req,res){
     let errors = validationResult(req);
         if(errors.isEmpty()){
        
-        let {username, email} = req.body;
+        
         psswrd = req.body.password;
         password = bcrypt.hashSync(psswrd , 10);
-        
-        let newUser = {username, password, email};
 
+        db.Users.create({
+            username: req.body.username,
+            pass: password,
+            email: req.body.email,
+            phone: req.body.phone,
+            age: req.body.age,
+            nationality: req.body.nationality
+        })
         
-        console.log(newUser);
         
-
-        users.push(newUser);
-       
-       fs.writeFileSync(dataFilePath, JSON.stringify(users,null,' '));
        res.redirect('/') ;
        
 
@@ -40,68 +42,71 @@ create: function(req,res){
         }
 
 },
-
+        //-------------------------LOG IN FORM----------------------
 login: (req, res) => {
     res.render('login');
 },
+        //-------------------------LOG IN FUNCTION----------------------
 userLogin: (req,res)=> {
-    let users = JSON.parse(fs.readFileSync(dataFilePath, 'utf-8'));
     let errors = validationResult(req);
-    let { email, password } =  req.body;
-    let loggingUser = { email, password };
         if(errors.isEmpty()){
-            let user;
-            for(let i=0 ; i < users.length; i++){
-                if(users[i].email == loggingUser.email){
+            let loggingUser;
+            db.Users.findAll()
+                .then(function(user){
+                    for(let i=0 ; i < user.length; i++){
+                if(user[i].email == req.body.email){
                     console.log("mail OK")
-                    if(bcrypt.compareSync(loggingUser.password, users[i].password)){
+                    console.log(user[i])
+                    if(bcrypt.compareSync(req.body.password, user[i].pass)){
                         console.log("pass OK")
-                        user = users[i];
+                        loggingUser = user[i];
                     }
                 }
             }
-            if(user == undefined){
+            if(loggingUser == undefined){
                 res.render('login', {errors: [
                     {msg: "Invalid email or password."}
                 ], old: req.body})
 
             }
-            req.session.loggedUser = user;
-            console.log(req.session.loggedUser)
+            req.session.loggedUser = loggingUser;
             res.redirect('/')
+        })
+            
 
 }else{
     res.render('login', {errors: errors.array(), old: req.body})
 }
 },
+        //-------------------------USER PROFILE----------------------
 profile: (req,res)=> {
     res.render('userprofile', {user:req.session.loggedUser})
 },
+        //-------------------------EDIT PROFILE FORM----------------------
 editProfile: (req,res) => {
-    res.render('editprofile', {user:req.session.loggedUser})
+    db.Users.findByPk(req.params.id)
+    .then(function(user){
+            res.render('editprofile', {user:req.session.loggedUser, userToEdit: user})
+    })
+
+    
 },
+        //-------------------------EDIT PROFILE FUNCTIION----------------------
 editedProfile: (req,res)=> {
     let errors = validationResult(req);
         if(errors.isEmpty()){
-       
-        let email = req.body.email;
-        psswrd = req.body.password;
-        password = bcrypt.hashSync(psswrd , 10);
-        
-        let editedUser = {password, email};
-        for(let i=0;i<users.length;i++){
-            if(users[i].email == req.session.loggedUser.email){
-               users[i] = {...users[i], ...editedUser};
-               console.log(users[i]);
-                break;
-                
-            }
-        }
-        
-       
-       fs.writeFileSync(dataFilePath, JSON.stringify(users,null,' '));
-       
-       
+            password = bcrypt.hashSync(req.body.password , 10);
+            db.Users.update({
+                email: req.body.email,
+                password: password,
+                phone: req.body.phone
+            },
+            {
+                where:{
+                    id: req.params.id
+                }
+            })
+
         delete req.session.loggedUser;
        res.redirect('/') ;
        
@@ -110,6 +115,7 @@ editedProfile: (req,res)=> {
                 res.render('editProfile', {errors: errors.array(), old: req.body, user:req.session.loggedUser})
         }
 }
+     
 };
 
 module.exports = userControl;

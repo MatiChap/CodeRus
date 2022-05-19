@@ -17,32 +17,49 @@ let validation = [
    body("name").notEmpty().withMessage('Please insert your full name in the form.').bail()
    .isLength({min:5}).withMessage('Reminder: Do not use nicknames or abreviations.')
    .matches(/^[A-Za-z\s]+$/).withMessage('Reminder: Do not include numbers or other characters in your name.'),
-   body("price").notEmpty().withMessage('Please insert your desired price in the form.').bail()
-   .isNumeric().withMessage('Reminder: Price should be expressed in numbers only.') ,
-   body("desc").notEmpty().withMessage('Please enter your description in the form.').bail()
+   body("description").notEmpty().withMessage('Please enter your description in the form.').bail()
    .isLength({min:15}).withMessage('Your description is too short!(Min characters:15)')
-   .isLength({max:100}).withMessage('Your description is too long! (Max characters:100)')
+   .isLength({max:100}).withMessage('Your description is too long! (Max characters:100)'),
+   body("age").notEmpty().withMessage('Please insert your age.').bail()
+   .isLength({min:2,max:2}).withMessage('Invalid age.').bail()
+   .isInt({min:18}).withMessage('You must be at least 18 years old to use our platform.'),
+   body("nationality").notEmpty().withMessage('Please insert your nationality.').bail()
+   .isAlpha().withMessage('Invalid character in nationality.'),
 
 ]
-
+//-------------------------HOME ROUTE----------------------
 router.get('/', controller1.index);
 
+//-------------------------DEV LIST----------------------
 router.get('/dev', controller1.dev);
+
+//-------------------------DEV DELETE----------------------
 router.delete('/dev/:id', controller1.deletedev);
 
-
+//-------------------------DEV REGISTER FORM----------------------
 router.get('/newDev', controller1.newDevForm);
-router.post('/newDev', upload.single("pp"), validation, controller1.newDevCreate);
 
+//-------------------------DEV REGISTER FUNCTION----------------------
+router.post('/newDev', upload.single("picture"), validation, controller1.newDevCreate);
+
+//-------------------------DEVELOPER PROFILE----------------------
 router.get('/devProfile/:id', controller1.devProfile);
 
-
+//-------------------------CART----------------------
 router.get('/cart', controller1.cart);
 
+//-------------------------EDIT DEV FORM----------------------
 router.get('/edit/:id',controller1.edit);
 
-router.put('/edit/:id', upload.single("pp"), validation, controller1.edited);
+//-------------------------EDIT DEV FUNCTION----------------------
+router.put('/edit/:id', upload.single("picture"), [body("name").notEmpty().withMessage('Please insert your full name in the form.').bail()
+.isLength({min:5}).withMessage('Reminder: Do not use nicknames or abreviations.')
+.matches(/^[A-Za-z\s]+$/).withMessage('Reminder: Do not include numbers or other characters in your name.'),
+body("description").notEmpty().withMessage('Please enter your description in the form.').bail()
+.isLength({min:15}).withMessage('Your description is too short!(Min characters:15)')
+.isLength({max:100}).withMessage('Your description is too long! (Max characters:100)'),], controller1.edited);
 
+//-------------------------LOGOUT----------------------
 router.get('/logout', controller1.logout)
 
 module.exports = router;

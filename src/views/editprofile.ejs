@@ -25,7 +25,7 @@
         <%    })
          } %>
     <% if(locals.user) { %>
-    <form class="form" action="/user/editProfile?_method=PUT" method="POST">
+    <form class="form" action="/user/editProfile/<%=userToEdit.id %>?_method=PUT" method="POST">
         <h1 id="regtitle">Edit profile:</h1>
       <p>      
         <label for="name">Your email: </label>
@@ -33,15 +33,18 @@
             <input class="input" type="email" name="email" value="<%=user.email %>"></input>
       </p>
       <p>
-          <label for="desc">Your password: </label>
+          <label for="pass">Your password: </label>
           <br></br>
           <input class="input" type="text" name="password" value="******"></input>
       </p>
+      <label for="desc">Your phone number: </label>
+          <br></br>
+          <input class="input" type="text" name="phone" value="******"></input>
       
       </p>
       
 
-      <input class="input" type="submit" value="Update"></input>
+      <input class="buttons" type="submit" value="Update"></input>
 
 
     </form>

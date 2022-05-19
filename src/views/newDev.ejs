@@ -32,31 +32,36 @@
         <form method="POST" class="form"  action="/newDev" validate="true" enctype="multipart/form-data">
             <h1 id="regtitle">New Dev Profile</h1>
             <p>
-                <label for="name">Full Name: </label>
+                <label for="name">Full Name</label>
                 <br></br>
                 <input class="input" type="text" name="name"></input>
             </p>
     
             <p>
-                <label for="desc">Description:</label>
+                <label for="desc">Description</label>
                 <br></br>
-                <textarea class="input" name="desc">Describe yourself here!</textarea>
+                <textarea class="input" name="description">Describe yourself here!</textarea>
             </p>
     
             <p>
-                <label for="price">Price:</label>
+                <label for="age">Age</label>
                 <br></br>
-                <input class="input" type="number" name="price"></input>
+                <input class="input" type="text" name="age"></input>
+            </p>
+            <p>
+                <label for="nationality">Nationality</label>
+                <br></br>
+                <input class="input" type="text" name="nationality"></input>
             </p>
             <p>
                 <label for="pp" >Profile Picture</label>
                 <br></br>
                 <br></br>
-                <input type="file" name="pp" required></input>
+                <input type="file" name="picture" required></input>
                 
     
             <p>
-                <input class="input" type="submit" value="Create profile"></input>
+                <input class="buttons" type="submit" value="Create profile"></input>
             </p>
     
         </form>

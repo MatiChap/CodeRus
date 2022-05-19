@@ -27,43 +27,58 @@ const storage = multer.diskStorage({
 const upload = multer({ storage:storage, fileFilter: fileFilter, limits: limits });
 const { validationResult } = require('express-validator');
 const dataFilePath = path.join(__dirname, '../database/Data.json');
-let devs = JSON.parse(fs.readFileSync(dataFilePath, 'utf-8'));
+// let devs = JSON.parse(fs.readFileSync(dataFilePath, 'utf-8'));
 const sharp=require('sharp');
+
+let db = require('../../database/models')
 
 
 const controlador = {
+
+//-------------------------HOME----------------------
 index: (req, res) => {	
         
         res.render('home', {user:req.session.loggedUser}); 
 },
 
+//------------------------DEVELOPER LIST----------------------
 dev: (req, res) => {
-devs = JSON.parse(fs.readFileSync(dataFilePath, 'utf-8'));
-    res.render('dev',{data: devs,user:req.session.loggedUser});
+        db.Devs.findAll()
+                .then(function(dev){
+                  res.render('dev',{data: dev,user:req.session.loggedUser});      
+                })
+
+        
+    
 },
+
+//-------------------------DEV REGISTER FORM----------------------
 newDevForm: (req,res) => {
+        
         
         res.render('newDev', {user:req.session.loggedUser})
         
 },
+
+//-------------------------DEV REGISTER SUCCESS----------------------
 newDevCreate: (req,res) => {
         
         let errors = validationResult(req);
-        console.log(req.file)
         if(errors.isEmpty() && req.file.mimetype == 'image/jpeg' || req.file.mimetype == 'image/jpg' || req.file.mimetype == 'image/png'){
-                let id = devs[devs.length-1].id +1;
-       
-        let {name, desc, pp, price} = req.body
-        pp ='/img/pp/' + req.file.filename;
-        let newDev = {name, desc, pp, price, id};
-
+                db.Devs.create({
+                        name: req.body.name,
+                        nationality: req.body.nationality,
+                        picture: '/img/pp/'+ req.file.filename,
+                        age: req.body.age,
+                        description: req.body.description
+                })
         
 
         
-
-        devs.push(newDev);
        
-       fs.writeFileSync(dataFilePath, JSON.stringify(devs,null,' '));
+       
+
+
        res.redirect('/dev') ;
        
 
@@ -81,80 +96,95 @@ newDevCreate: (req,res) => {
         
 
 },
+
+
+//-------------------------DEV DELETE----------------------
 deletedev: function(req,res){
-           let list = devs.filter((dev) => dev.id != req.params.id);
-          let devdelete;
-           for(let e of devs){
-                   if( e.id == req.params.id){
-                         devdelete = e;
-                        break;
-        }
+        db.Devs.findByPk(req.params.id)
+                .then(function(dev){
+                        fs.unlinkSync(path.join(__dirname, '../../public', dev.picture))
+                });
+        db.Devs.destroy({
+                where: {
+                        id: req.params.id
+                }
+        })
 
-        }
-        fs.unlinkSync(path.join(__dirname, '../../public/', devdelete.pp))
+        res.redirect('/dev');
            
-           fs.writeFileSync(dataFilePath, JSON.stringify(list,null,' '));
-           res.redirect('/dev');
         
+
         
-},
+
+}, 
+
+
+
+//-------------------------DEVELOPER PROFILE----------------------
 devProfile : (req,res)=> {
-        let profile=null;
-for(let d of devs){
-        if( d.id == req.params.id){
-                profile=d;
-                break;
-
-        }
-}
-res.render('devProfile', {data: profile, user:req.session.loggedUser});
+        db.Devs.findByPk(req.params.id)
+        .then(function(dev){
+                res.render('devProfile', {data: dev, user: req.session.loggedUser} )
+                console.log(dev.picture)
+        })
 },
+
+
+//-------------------------EDIT DEV FORM----------------------
 edit: (req,res) => {
-        
-        let idDev=req.params.id;
-        
+        db.Devs.findByPk(req.params.id)
+    .then(function(dev){
+            res.render('edit', {user:req.session.loggedUser, dev: dev})
+    })
 
-        let devEdit = devs[idDev];
-
-        res.render('edit', {userToEdit: devEdit, user:req.session.loggedUser})
+       
            
 },
 
+
+//-------------------------EDIT DEV SUCCESS----------------------   
 edited:function (req,res) {
         let errors=validationResult(req);
-        let idDev=req.params.id;
-        let devEdit = devs[idDev];
         if(errors.isEmpty()){
-         console.log(req.body)
-        let {name, desc, pp, price} = req.body
-        pp ='/img/pp/' + req.file.filename;
-        let devEdited = {name, desc, pp, price};
-        for(let i=0;i<devs.length;i++){
-             if(devs[i].id == req.params.id){
-                devs[i] = {...devs[i], ...devEdited};
-                console.log(devs[i]);
-                 break;
-                 
-             }
-         }
-         fs.writeFileSync(dataFilePath, JSON.stringify(devs,null,' '));
-         res.redirect('/');       
-        }else{
+
+        
+   
                 
-                res.render('edit', {errors: errors.array(), old: req.body, userToEdit: devEdit, user:req.session.loggedUser})     
-        }
+                db.Devs.update({
+                        name: req.body.name,
+                        description: req.body.description,
+                        picture: '/img/pp/' + req.file.filename
+                    },
+                    {
+                        where:{
+                            id: req.params.id
+                        }
+                    })
+        
+        
+         res.render('dev');       
+        }else{
+                db.Devs.findByPk(req.params.id)
+    .then(function(dev){
+        res.render('edit', {errors: errors.array(), old: req.body, dev: dev, user:req.session.loggedUser}) 
+            
+                
+                  
+        })
+}
         
         },
 
         
-
-
-
+//-------------------------CART(IN PROGRESS)----------------------
 cart: (req, res) => {
     
     res.render('cart',{data:devs, user:req.session.loggedUser});
 
 },
+
+
+//-------------------------LOGOUT----------------------
 logout: (req,res) => {
         delete req.session.loggedUser;
         res.redirect('/')

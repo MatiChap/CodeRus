@@ -21,13 +21,13 @@
         <% for(let i=0;i<data.length;i++) { %>
         <div class="profile">
             <div id="ppcontainer">
-          <img class="pp" src="<%=data[i].pp %>"">
+          <img class="pp" src="<%=data[i].picture %>">
             </div>
         <h3> <%=data[i].name %> </h3>
-        <p> <%=data[i].desc %></p>
+        <p> <%=data[i].description %></p>
         <div id="profileactions">
             <a href="devProfile/<%=data[i].id %>"><button class="buttons" type="button"><i class="fas fa-user"></i> Profile</button></a>
-            <button class="buttons" type="button"><i class="fas fa-user-check"></i> Hire Now:$ <%=data[i].price %> /hr</button>
+            <button class="buttons" type="button"><i class="fas fa-user-check"></i> Add to your team </button>
         </div>
             <a href='/edit/<%=data[i].id %>'><button class="buttons" type="button">Admin edit <em><i class="fas fa-user"></i></em></button></a>
             <form class="form" action="/dev/<%=data[i].id %>?_method=DELETE" method="POST">

@@ -21,9 +21,9 @@
         <div class="profile">
           <h3>Welcome, <%=user.username %>.</h3>
         <p> Your email is : <%=user.email %> </p>
-                <div id="profileactions">
             
-            <a href="/user/editProfile"><button class="buttons" type="button"><i class="fas fa-user-check"></i> Change email or password </button></a>
+            
+            <a href="/user/editProfile/<%=user.id%>"><button class="buttons" type="button"><i class="fas fa-user-check"></i> Change email or password </button></a>
         </div>
         </div>
     
