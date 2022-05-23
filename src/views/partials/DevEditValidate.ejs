@@ -1,0 +1,51 @@
+<script>
+    window.addEventListener('load', function(){
+        let form = document.querySelector('form.form');
+        console.log({form});
+        
+        
+        
+    
+    
+        form.addEventListener('submit', function(e){
+            
+                let error = [];
+    
+                let nameInput = document.querySelector("[name = 'name']");
+                let descInput = document.querySelector("[name = 'description']")
+               
+                
+                
+    
+                let errorList = document.querySelector('div.error ul');
+                
+                if(nameInput.value.length < 0){
+                    error.push('Please insert your full name.')
+                }else if(nameInput.value.length < 4){
+                    error.push('Reminder: Do not use nicknames or abreviations.')
+                }
+
+
+                if(descInput.value.length < 0){
+                    error.push('Please insert your description.')
+                }else if(descInput.value.length > 100){
+                    error.push('Your description is too long! (Max characters: 100)')
+                }else if(descInput.value.length < 15){
+                    error.push('Your description is too short! (Min characters: 15)')
+                }
+
+                
+    
+                if(error.length > 0){
+                    e.preventDefault();
+                    for(let i=0; i < error.length; i++){
+                        errorList.innerHTML += '<li class="errors">'+ '<i class="fal fa-times-hexagon"></i>'+ ' ' + error[i] + '</li>'
+    
+                    }
+                };
+    
+    
+        })
+    })
+    
+    </script>

@@ -27,10 +27,14 @@
          } %>
          
         
-        
+         <div class="error">
+            <ul>
+
+            </ul>
+        </div>
        
         <form method="POST" class="form"  action="/newDev" validate="true" enctype="multipart/form-data">
-            <h1 id="regtitle">New Dev Profile</h1>
+            <h1 id="regtitle">Dev Sign-Up</h1>
             <p>
                 <label for="name">Full Name</label>
                 <br></br>
@@ -70,8 +74,7 @@
 
     </div>
 </body>
-<br></br>
-<br></br>
+<%- include('./partials/DevValidate') %>
 <footer>
     <%- include('./partials/footer') %>
 </footer>

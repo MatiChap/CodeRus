@@ -24,7 +24,11 @@
                 <%= error.msg %></p>
         <%    })
          } %>
-    
+         <div class="error">
+            <ul>
+
+            </ul>
+        </div>
     <form class="form" action="/edit/<%= dev.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
         <h1 id="regtitle">Edit profile:</h1>
       <p>      
@@ -55,6 +59,7 @@
 
     </form>
     </div>
+    <%- include('./partials/DevEditValidate') %>
 </body>
 <footer>
     <%- include('./partials/footer') %>

@@ -16,15 +16,11 @@ module.exports = (sequelize, dataTypes) => {
        success: {
            type: dataTypes.INTEGER
        },
-       userComment: {
-           type: dataTypes.STRING
-       },
+
        devComment: {
            type: dataTypes.STRING
        },
-       userRating: {
-           type: dataTypes.INTEGER
-       },
+       
        devRating: {
            type: dataTypes.INTEGER
        },

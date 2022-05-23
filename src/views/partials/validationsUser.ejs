@@ -1,0 +1,73 @@
+<script>
+window.addEventListener('load', function(){
+    let form = document.querySelector('form.form');
+    console.log({form});
+    let emailInput =  document.querySelector("[name = 'email']");
+    let passwordInput = document.querySelector("[name = 'password']");
+    console.log(passwordInput)
+    console.log(emailInput)
+    
+
+
+    form.addEventListener('submit', function(e){
+        
+            let errors = [];
+
+            let usernameInput =  document.querySelector("[name = 'username']");
+            let emailInput = document.querySelector("[name = 'email']");
+            let passwordInput = document.querySelector("[name = 'password']");
+            let ageInput = document.querySelector("[name = 'age']");
+            let phoneInput = document.querySelector("[name = 'phone']");
+            let nationInput = document.querySelector("[name = 'nationality']");
+
+            let errorList = document.querySelector('div.error ul');
+            
+           
+
+            if(usernameInput.value.length < 0){
+                errors.push('Please insert your username.')
+            }else if(usernameInput.value.length < 5){
+                errors.push('Username too short!')
+            }
+
+            if(emailInput.value.length < 0){
+                errors.push('Please insert your e-mail.')
+            }
+
+            if(passwordInput.value.length < 0){
+                errors.push('Please insert a password.')
+            }else if(passwordInput.value.length > 20){
+                errors.push('Password is too long! (Max characters:20)')
+            }else if(passwordInput.value.length < 5){
+                errors.push('Password is too short! (Min characters: 5)')
+            }
+
+            if(ageInput.value.length < 0){
+                errors.push('Please insert your age')
+            }else if(ageInput.value < 18){
+                errors.push('You must be at least 18 years old to use our platform.')
+            }
+
+            if(nationInput.value.length < 0){
+                errors.push('Please insert your nationality.')
+            }
+
+            if(phoneInput.value.length < 0){
+                errors.push('Please insert your phone number.')
+            }else if(isNaN(phoneInput.value)){
+                errors.push('Invalid character in phone number.')
+            }
+
+            if(errors.length > 0){
+                e.preventDefault();
+                for(let i=0; i < errors.length; i++){
+                    errorList.innerHTML += '<li class="errors">'+ '<i class="fal fa-times-hexagon"></i>'+ ' ' + errors[i] + '</li>'
+
+                }
+            };
+
+
+    })
+})
+
+</script>

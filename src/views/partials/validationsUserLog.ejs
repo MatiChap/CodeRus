@@ -1,0 +1,49 @@
+<script>
+    window.addEventListener('load', function(){
+        let form = document.querySelector('form.form');
+        console.log({form});
+        let emailInput =  document.querySelector("[name = 'email']");
+        let passwordInput = document.querySelector("[name = 'password']");
+        console.log(passwordInput)
+        console.log(emailInput)
+        
+    
+    
+        form.addEventListener('submit', function(e){
+            
+                let errors = [];
+    
+                
+                let emailInput = document.querySelector("[name = 'email']");
+                let passwordInput = document.querySelector("[name = 'password']");
+                
+                
+    
+                let errorList = document.querySelector('div.error ul');
+                
+    
+                if(emailInput.value.length < 0){
+                    errors.push('Please insert your e-mail.')
+                }
+    
+                if(passwordInput.value.length < 0){
+                    errors.push('Please insert a password.')
+                }else if(passwordInput.value.length > 20){
+                    errors.push('Password is too long! (Max characters:20)')
+                }else if(passwordInput.value.length < 5){
+                    errors.push('Password is too short! (Min characters: 5)')
+                }
+    
+                if(errors.length > 0){
+                    e.preventDefault();
+                    for(let i=0; i < errors.length; i++){
+                        errorList.innerHTML += '<li class="errors">'+ '<i class="fal fa-times-hexagon"></i>'+ ' ' + errors[i] + '</li>'
+    
+                    }
+                };
+    
+    
+        })
+    })
+    
+    </script>

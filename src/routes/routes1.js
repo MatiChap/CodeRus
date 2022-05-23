@@ -15,7 +15,7 @@ const upload = multer({ storage:storage });
 const {body} = require('express-validator');
 let validation = [
    body("name").notEmpty().withMessage('Please insert your full name in the form.').bail()
-   .isLength({min:5}).withMessage('Reminder: Do not use nicknames or abreviations.')
+   .isLength({min:4}).withMessage('Reminder: Do not use nicknames or abreviations.')
    .matches(/^[A-Za-z\s]+$/).withMessage('Reminder: Do not include numbers or other characters in your name.'),
    body("description").notEmpty().withMessage('Please enter your description in the form.').bail()
    .isLength({min:15}).withMessage('Your description is too short!(Min characters:15)')

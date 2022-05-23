@@ -72,6 +72,12 @@ newDevCreate: (req,res) => {
                         age: req.body.age,
                         description: req.body.description
                 })
+
+
+                db.Devs.findAll()
+                .then(function(dev){
+                  res.render('dev',{data: dev,user:req.session.loggedUser});      
+                })
         
 
         
@@ -79,7 +85,7 @@ newDevCreate: (req,res) => {
        
 
 
-       res.redirect('/dev') ;
+       
        
 
         }else{
@@ -87,8 +93,7 @@ newDevCreate: (req,res) => {
         }
 
         
-       console.log(errors);
-       console.log(devs);
+       
        
        
       
@@ -110,7 +115,11 @@ deletedev: function(req,res){
                 }
         })
 
-        res.redirect('/dev');
+        db.Devs.findAll()
+                .then(function(dev){
+                  res.render('dev',{data: dev,user:req.session.loggedUser});      
+                })
+
            
         
 
@@ -162,7 +171,11 @@ edited:function (req,res) {
                     })
         
         
-         res.render('dev');       
+                    db.Devs.findAll()
+                    .then(function(dev){
+                      res.render('dev',{data: dev,user:req.session.loggedUser});      
+                    })
+           
         }else{
                 db.Devs.findByPk(req.params.id)
     .then(function(dev){

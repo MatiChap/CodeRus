@@ -20,7 +20,9 @@ body {
   position: sticky;
   top: 0px;
   z-index: 10;
-  border: solid 2px rgb(56, 66, 67);
+  border-bottom: ridge 4px gray;
+  max-height: 1000px;
+  overflow: hidden;
 }
 #lupa {
   height: 50px;
@@ -71,14 +73,14 @@ body {
   color: #dadada;
   text-align: center;
   padding:5px;
+  font-weight: lighter;
+  font-style: italic;
 }
 #promo em {
   font-size: 25px;
-  color: #6d9b93;
+  color: #c0c0c0;
 }
-#navbar {
-  display: none;
-}
+
 #boton {
   text-align: center;
   color: rgb(223, 220, 90);
@@ -240,6 +242,7 @@ input.input:nth-child(5):hover {
   padding: 20px;
   color: #292929;
   box-shadow: 0px 2px #00000042;
+  font-style: italic;
 }
 
 #homeCard p {
@@ -375,7 +378,7 @@ input.input:nth-child(5):hover {
 #picsHead {
   font-family: "open sans",sans-serif;
   font-weight: bold;
-  margin-top: 150px;
+  margin-top: 125px;
   margin-bottom: -40px;
   font-size:1.5rem;
   color: #292929;
@@ -383,30 +386,6 @@ input.input:nth-child(5):hover {
   text-align: center;
 }
 
-@media (min-width: 760px) {
-  #navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-align: left;
-    padding: 0;
-    font-size: 1rem;
-    font-weight: 550;
-    min-height: 48px;
-  }
-  #botbar {
-    justify-content: space-between;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    margin-top: 50px;
-  }
-  .navright {
-    height: 48px;
-  }
-  .navleft {
-    height: 48px;
-  }
   #navbar a {
     text-decoration: none;
     color: #fffefe;
@@ -416,24 +395,25 @@ input.input:nth-child(5):hover {
     transition: 0.5s;
     font-family: "open sans", sans-serif;
   }
-  #greeting {
-    color: #2d3636;
-    align-self: center;
-    padding: 10px 10px;
-    font-size: 1.1rem;
-    background-color: #deda6f;
-    border-radius: 10px;
-    border: ridge 2px silver;
-    font-family: "open sans", sans-serif;
-    margin:auto;
+
+  #navbar {
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 550;
+    transition: all 0.3s;
+    display: none;
+    overflow: hidden;
+    
   }
-  
+
   #navbar ul {
     margin: 0;
     padding: 0;
     list-style: none;
-    display: flex;
   }
+  
   #navbar li {
     margin: 5px;
     transition: 0.5s;
@@ -452,9 +432,40 @@ input.input:nth-child(5):hover {
     transition: 0.5s;
   }
   #navbar li em {
-    color: rgb(109, 155, 147);
-    font-size: 1.2rem;
+    color: rgb(192, 192, 192);
+    font-size: 2rem;
   }
+  #greeting {
+    color: #2d3636;
+    align-self: center;
+    padding: 12px 10px;
+    font-size: 1.5rem;
+    background-color: #deda6f;
+    border-radius: 10px;
+    border: ridge 2px silver;
+    font-family: "open sans", sans-serif;
+    margin:auto;
+  }
+@media (min-width: 760px) {
+  #navbar {
+    display: flex;
+    
+  }
+  #botbar {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 50px;
+  }
+
+  
+  
+  #navbar ul {
+    
+    display: flex;
+  }
+  
   #header {
     display: flex;
     justify-content: space-between;

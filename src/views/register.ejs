@@ -24,6 +24,12 @@
                 <%= error.msg %></p>
         <%    })
          } %>
+
+         <div class="error">
+             <ul>
+
+             </ul>
+         </div>
         <form method="POST" class="form"  action="/user/register">
             <h1 id="regtitle">Sign-In  <i class="fas fa-arrow-to-right"></i></h1>
             <p>
@@ -73,9 +79,9 @@
         
 
     </div>
+    <%- include('./partials/validationsUser') %>
 </body>
-<br></br>
-<br></br>
+
 <footer>
     <%- include('./partials/footer') %>
 </footer>

@@ -17,6 +17,15 @@ register: (req, res) => {
 },
     //-------------------------USER REGISTER FUNCTION----------------------
 create: function(req,res){
+   /* // db.Users.findAll()
+    .then(function(user){
+        for(let i=0 ; i < user.length; i++){
+    if(user[i].email == req.body.email){
+        errors = ['Mail already in use.']
+        res.render('register', {errors: errors})
+    }
+}
+}); */ 
     let errors = validationResult(req);
         if(errors.isEmpty()){
        
