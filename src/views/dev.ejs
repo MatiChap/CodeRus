@@ -21,13 +21,13 @@
         <% for(let i=0;i<data.length;i++) { %>
         <div class="profile">
             <div id="ppcontainer">
-          <img class="pp" src="<%=data[i].picture %>">
+          <img class="pp" id="devPic<%=data[i].id %>" src="<%=data[i].picture %>">
             </div>
-        <h3> <%=data[i].name %> </h3>
-        <p> <%=data[i].description %></p>
+        <h3 class="name" id="devName<%=data[i].id %>"> <%=data[i].name %> </h3>
+        <p id="desc"> <%=data[i].description %></p>
         <div id="profileactions">
             <a href="devProfile/<%=data[i].id %>"><button class="buttons" type="button"><i class="fas fa-user"></i> Profile</button></a>
-            <button class="buttons" type="button"><i class="fas fa-user-check"></i> Add to your team </button>
+            <button class="buttons" id="devAdd" type="button" value="<%=data[i].id %>"><i class="fas fa-user-check"></i> Add to your team </button>
         </div>
             <a href='/edit/<%=data[i].id %>'><button class="buttons" type="button">Admin edit <em><i class="fas fa-user"></i></em></button></a>
             <form class="form" action="/dev/<%=data[i].id %>?_method=DELETE" method="POST">
@@ -35,11 +35,20 @@
             </form>
         </div>
         <% } %>
+
+        <% if (locals.user) { %>
+         
+            <button class="buttons" id="contratar">Start your project!</button>
+                
+           
+         <% } %>
+        
         
 
     </div>
     <br></br>
     <br></br>
+    <%- include('./partials/Cart') %>
 </body>
 <footer>
     <%- include('./partials/footer') %>

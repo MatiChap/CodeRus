@@ -89,7 +89,15 @@ userLogin: (req,res)=> {
 },
         //-------------------------USER PROFILE----------------------
 profile: (req,res)=> {
-    res.render('userprofile', {user:req.session.loggedUser})
+    db.Projects.findAll({
+        where: {
+            user_id: req.session.loggedUser.id
+        }
+    }).then(function(projects){
+        
+        res.render('userprofile', {user:req.session.loggedUser, projects: projects})
+    })
+            
 },
         //-------------------------EDIT PROFILE FORM----------------------
 editProfile: (req,res) => {

@@ -16,7 +16,10 @@ module.exports = (sequelize, dataTypes) => {
        success: {
            type: dataTypes.INTEGER
        },
-
+       ongoing: {
+           type:dataTypes.INTEGER
+       },
+       
        devComment: {
            type: dataTypes.STRING
        },

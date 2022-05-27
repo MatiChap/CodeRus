@@ -38,7 +38,10 @@ const controlador = {
 //-------------------------HOME----------------------
 index: (req, res) => {	
         
+
+        
         res.render('home', {user:req.session.loggedUser}); 
+
 },
 
 //------------------------DEVELOPER LIST----------------------
@@ -61,11 +64,11 @@ newDevForm: (req,res) => {
 },
 
 //-------------------------DEV REGISTER SUCCESS----------------------
-newDevCreate: (req,res) => {
+newDevCreate: async (req,res) => {
         
         let errors = validationResult(req);
         if(errors.isEmpty() && req.file.mimetype == 'image/jpeg' || req.file.mimetype == 'image/jpg' || req.file.mimetype == 'image/png'){
-                db.Devs.create({
+                await db.Devs.create({
                         name: req.body.name,
                         nationality: req.body.nationality,
                         picture: '/img/pp/'+ req.file.filename,
@@ -79,15 +82,6 @@ newDevCreate: (req,res) => {
                   res.render('dev',{data: dev,user:req.session.loggedUser});      
                 })
         
-
-        
-       
-       
-
-
-       
-       
-
         }else{
                 res.render('newDev', {errors: errors.array(), old: req.body, user:req.session.loggedUser})
         }
@@ -104,21 +98,23 @@ newDevCreate: (req,res) => {
 
 
 //-------------------------DEV DELETE----------------------
-deletedev: function(req,res){
-        db.Devs.findByPk(req.params.id)
-                .then(function(dev){
+deletedev: async function(req,res){
+       let dev = await db.Devs.findByPk(req.params.id)
+                
                         fs.unlinkSync(path.join(__dirname, '../../public', dev.picture))
-                });
-        db.Devs.destroy({
+                
+                await  db.Devs.destroy({
                 where: {
                         id: req.params.id
                 }
         })
 
-        db.Devs.findAll()
-                .then(function(dev){
-                  res.render('dev',{data: dev,user:req.session.loggedUser});      
-                })
+        res.redirect('/dev')
+
+        // db.Devs.findAll()
+        //         .then(function(dev){
+        //           res.render('dev',{data: dev,user:req.session.loggedUser});      
+        //         })
 
            
         
@@ -192,8 +188,22 @@ edited:function (req,res) {
 //-------------------------CART(IN PROGRESS)----------------------
 cart: (req, res) => {
     
-    res.render('cart',{data:devs, user:req.session.loggedUser});
+    res.render('cart',{ user:req.session.loggedUser});
 
+},
+hire: (req,res) => {
+        console.log(req.body);
+        console.log(req.session.loggedUser.id)
+        
+           for(let i = 0; i < req.body.length; i++){
+                  db.Projects.create({
+                         user_id: req.session.loggedUser.id,
+                           dev_id: req.body[i].id,
+                         ongoing: 1,
+                           projectName: 'Your new project',
+                   })
+           }
+       res.send('gaga');
 },
 
 

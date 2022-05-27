@@ -1,0 +1,57 @@
+<script>
+    window.addEventListener('load', function(){
+        
+         let contratar = document.querySelector('#contratar')
+         contratar.addEventListener('click',function(){
+             console.log(JSON.parse(localStorage.getItem('cart')));
+
+
+
+                                 fetch('http://localhost:3000/cart', {
+                     method: 'POST', // or 'PUT'
+                     headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: localStorage.getItem('cart')
+                   })
+                    .then(response => response.json())
+                    .then(data => {
+                     console.log('Success:', data);
+                    })
+                     .catch((error) => {
+                     console.error('Error:', error);
+                   })
+              
+  
+
+
+
+         })
+        let cart = []
+       
+        let addButton = document.querySelectorAll('#devAdd').forEach(button => 
+        button.addEventListener('click',function(e){
+            let id = button.value
+            
+            // let profileDev = document.querySelector('#profileDev' + id)
+             let name = document.querySelector('#devName' + id).innerText
+
+             let picture = document.querySelector('#devPic' + id).src;
+            // console.log(profileDev)
+
+            // let dev = { 
+            //     id : id,
+            //     name : name
+            // }
+
+            
+            
+           
+            cart.push({id,name,picture});
+            localStorage.setItem('cart', JSON.stringify(cart));
+            console.log(localStorage.getItem('cart'))
+        }))
+        
+    })
+    
+    </script>

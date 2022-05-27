@@ -1,0 +1,75 @@
+<script>
+  window.addEventListener("load", function () {
+      let hire = document.querySelector('#hire')
+      hire.addEventListener('click',function(){
+          
+
+                             fetch('http://localhost:3000/cart', {
+                  method: 'POST', // or 'PUT'
+                 headers: {
+                     'Content-Type': 'application/json',
+                 },
+                 body: localStorage.getItem('cart')
+              })
+              .then(response => window.location.href = '/');
+                //  .then(response => response.json())
+                 
+                //  .then(data => {
+                //   console.log('Success:', data);
+                //  })
+                //   .catch((error) => {
+                //   console.error('Error:', error);
+                // })
+
+      })
+
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    console.log(cart);
+    Element.prototype.insertChildAtIndex = function (child, index) {
+      if (!index) index = 0;
+      if (index >= this.children.length) {
+        this.appendChild(child);
+      } else {
+        this.insertBefore(child, this.children[index]);
+      }
+    };
+    for (let i = 0; i < cart.length; i++) {
+      console.log(cart[i]);
+
+      let profile = document.createElement("div");
+      profile.className = "profile";
+
+      let pictureCont = document.createElement("div");
+      pictureCont.id = "ppcontainer";
+
+      let picture = document.createElement("img");
+      picture.className = "pp";
+
+      let name = document.createElement("h3");
+      name.className = "devname";
+
+      let myCart = document.querySelector(".myCart");
+      let message = document.querySelector("#cartmsg");
+      
+
+      myCart.insertChildAtIndex(profile, 1);
+      
+      profile.appendChild(pictureCont);
+      pictureCont.appendChild(picture);
+      profile.appendChild(name);
+
+      name.innerText = cart[i].name;
+
+      picture.src = cart[i].picture;
+
+      
+    }
+  });
+
+  let cancel = document.querySelector('#cancel');
+
+  cancel.addEventListener('click', function(){
+    localStorage.clear();
+    window.location.href = '/dev';
+  });
+</script>

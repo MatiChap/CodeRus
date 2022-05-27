@@ -12,9 +12,12 @@ app.use(express.json());
 const session = require('express-session');
 app.use(session({secret:'coderus is secret'}));
 const bcrypt = require('bcryptjs');
+const cors = require('cors');
 
+app.use(cors());
 
-
+app.set('view engine','ejs');
+app.set('views', path.join(__dirname, '/views'));
 app.use('/', router);
 app.use('/user', routerUsers);
 
@@ -26,6 +29,5 @@ app.listen(process.env.PORT || 3000, () =>
 console.log('Server up')
 );
 
-app.set('view engine','ejs');
 
-app.set('views', path.join(__dirname, '/views'))
+

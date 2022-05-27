@@ -47,6 +47,7 @@ router.get('/devProfile/:id', controller1.devProfile);
 
 //-------------------------CART----------------------
 router.get('/cart', controller1.cart);
+router.post('/cart', controller1.hire);
 
 //-------------------------EDIT DEV FORM----------------------
 router.get('/edit/:id',controller1.edit);
