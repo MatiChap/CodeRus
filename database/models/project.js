@@ -37,6 +37,21 @@ module.exports = (sequelize, dataTypes) => {
         
     }
     const Project = sequelize.define(alias,cols,config);
+
+    Project.associate = function(models){
+        Project.belongsTo(models.Users, {
+            as: 'users',
+            foreignKey: 'user_id',
+            timestamps: false,
+        });
+        Project.belongsTo(models.Devs,
+            {
+                as: 'devs',
+                foreignKey: 'dev_id',
+                timestamps:false,
+
+            })
+    };
     
     return Project;
 }

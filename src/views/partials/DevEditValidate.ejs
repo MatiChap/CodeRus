@@ -38,6 +38,7 @@
     
                 if(error.length > 0){
                     e.preventDefault();
+                    errorList.innerHTML ='';
                     for(let i=0; i < error.length; i++){
                         errorList.innerHTML += '<li class="errors">'+ '<i class="fal fa-times-hexagon"></i>'+ ' ' + error[i] + '</li>'
     

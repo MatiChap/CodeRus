@@ -29,6 +29,7 @@ const { validationResult } = require('express-validator');
 const dataFilePath = path.join(__dirname, '../database/Data.json');
 // let devs = JSON.parse(fs.readFileSync(dataFilePath, 'utf-8'));
 const sharp=require('sharp');
+const { Op } = require("sequelize");
 
 let db = require('../../database/models')
 
@@ -126,11 +127,26 @@ deletedev: async function(req,res){
 
 
 //-------------------------DEVELOPER PROFILE----------------------
-devProfile : (req,res)=> {
-        db.Devs.findByPk(req.params.id)
-        .then(function(dev){
-                res.render('devProfile', {data: dev, user: req.session.loggedUser} )
-                console.log(dev.picture)
+devProfile : async(req,res)=> {
+        db.Projects.findAll({
+            raw:true,
+            nest:true,
+            include: [{
+                model:db.Devs,
+                as: 'devs',
+                raw:true,
+                nest:true
+                
+        },{association:'users'}],
+            where :{
+                dev_id: req.params.id
+                
+            }
+            
+        }).then(function(data){
+           
+           console.log(data);
+            res.render('devProfile', {user:req.session.loggedUser, data: data})
         })
 },
 
@@ -199,7 +215,7 @@ hire: (req,res) => {
                   db.Projects.create({
                          user_id: req.session.loggedUser.id,
                            dev_id: req.body[i].id,
-                         ongoing: 1,
+                                ongoing: 1,
                            projectName: 'Your new project',
                    })
            }
@@ -211,6 +227,21 @@ hire: (req,res) => {
 logout: (req,res) => {
         delete req.session.loggedUser;
         res.redirect('/')
+},
+
+search: (req,res)=> {
+        let search = req.query.search;
+        db.Devs.findAll({
+                where:{
+                        name:{
+                                [Op.like]: '%'+search+'%'
+                        }
+                }
+        })
+                .then(function(dev){
+                  res.render('search',{data: dev,user:req.session.loggedUser});      
+                })
+
 }
 }
 

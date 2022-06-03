@@ -1,32 +1,7 @@
 <script>
     window.addEventListener('load', function(){
         
-         let contratar = document.querySelector('#contratar')
-         contratar.addEventListener('click',function(){
-             console.log(JSON.parse(localStorage.getItem('cart')));
-
-
-
-                                 fetch('http://localhost:3000/cart', {
-                     method: 'POST', // or 'PUT'
-                     headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: localStorage.getItem('cart')
-                   })
-                    .then(response => response.json())
-                    .then(data => {
-                     console.log('Success:', data);
-                    })
-                     .catch((error) => {
-                     console.error('Error:', error);
-                   })
-              
-  
-
-
-
-         })
+         
         let cart = []
        
         let addButton = document.querySelectorAll('#devAdd').forEach(button => 
@@ -39,17 +14,35 @@
              let picture = document.querySelector('#devPic' + id).src;
             // console.log(profileDev)
 
-            // let dev = { 
-            //     id : id,
-            //     name : name
-            // }
+             let dev = { 
+                 id : id,
+                 name : name,
+                 picture: picture
+
+             }
 
             
             
+            if(cart.some(e => e.id === dev.id)){
+                cart = cart.filter(e => e.id !== id);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                console.log('Deleted ' + name);
+                console.log(localStorage.getItem('cart'));
+                console.log(cart);
+                button.style.backgroundColor = "#deda6f";
+                button.innerHTML = '<i class="fas fa-user-check"></i> Add to cart '
+                
+            }else{
+                cart.push(dev);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                console.log(localStorage.getItem('cart'));
+                console.log(cart);
+                button.style.backgroundColor = '#e600002e';
+                button.innerHTML = '<i class="fas fa-times"></i> Remove from cart'
+            }
            
-            cart.push({id,name,picture});
-            localStorage.setItem('cart', JSON.stringify(cart));
-            console.log(localStorage.getItem('cart'))
+            
+            
         }))
         
     })

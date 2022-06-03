@@ -88,14 +88,26 @@ userLogin: (req,res)=> {
 }
 },
         //-------------------------USER PROFILE----------------------
-profile: (req,res)=> {
+profile:async(req,res)=> {
     db.Projects.findAll({
-        where: {
-            user_id: req.session.loggedUser.id
+        raw:true,
+        nest:true,
+        include: [{
+            model:db.Devs,
+            as: 'devs',
+            raw:true,
+            nest:true
+            
+    }],
+        where :{
+            user_id: req.session.loggedUser.id,
+            ongoing:1
         }
-    }).then(function(projects){
         
-        res.render('userprofile', {user:req.session.loggedUser, projects: projects})
+    }).then(function(data){
+       
+       console.log(data);
+        res.render('userprofile', {user:req.session.loggedUser, data: data})
     })
             
 },
@@ -131,8 +143,57 @@ editedProfile: (req,res)=> {
         }else{
                 res.render('editProfile', {errors: errors.array(), old: req.body, user:req.session.loggedUser})
         }
+},
+
+//----------------------------------- COMMENT&RATE FORM ---------------------------------
+  endConnect:  (req,res)=> {
+
+      if(req.params.id < 9999 && req.params.id > 0 ){db.Projects.findOne({
+        raw:true,
+        nest:true,
+        where: {
+            id:req.params.id
+        },
+        
+        include: [{
+            model:db.Devs,
+            as: 'devs',
+            raw:true,
+            nest:true
+            
+    }]
+        
+        
+    }).then(function(data){
+       console.log('params = ' + req.params.id)
+       console.log(data);
+        res.render('projectend', {user:req.session.loggedUser, data: data})
+    })
 }
-     
+  },
+  
+  //-----------------------------COMMENT&RATE FUNCTION-----------------------------------
+  endedConnect: (req,res) => {
+    let errors = validationResult(req);
+      if(errors.isEmpty()){
+          db.Projects.update({
+              success: req.body.success,
+              ongoing: '0',
+              devComment : req.body.comment,
+              devRating: req.body.rating
+          },
+          {
+              where:{
+                  
+                  id: req.params.id
+
+          }
+        })
+        res.redirect('/')
+      }else{
+          res.render('projectend',{data:data, user:req.session.loggedUser, errors: errors.array()})
+      }
+  }
 };
 
 module.exports = userControl;

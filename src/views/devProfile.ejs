@@ -18,20 +18,33 @@
     <%- include('./partials/header') %>
     <div id="bodyMain">
 
-        <div class="profile">
+        <% for(let i = 0; i < 1; i++){   %>
+        
+            <div class="profile">
             <div id="ppcontainer">
-                <img class="pp" src="<%=data.picture%>">
+                <img class="pp" src="<%= data[i].devs.picture%>">
                   </div>
-        <h3> <%=data.name %> </h3>
-        <p> <%=data.description %></p>
-        <div id="profileactions">
+        <h3> <%=data[i].devs.name %> </h3>
+        <p> <%=data[i].devs.description %></p>
+            <div id="profileactions">
             
             <button class="buttons" type="button"><i class="fas fa-user-check"></i> Add to team</button>
         </div>
-        <div class="success">
-            <p><%=data.name %> has been hired on codeRus for <%=data.total %> projects, and succesfully completed <%=data.completed %>. Their success rate is: <%=data.rate %>.</p>
         
-            </div>
+            <% break %>
+       <% } %>
+        <h3>Comments and ratings</h3>
+       <% for(let i = 0; i < data.length ; i++){ %>
+        <% if(data[i].devComment){ %>
+
+        <div><i class="fas fa-user-tag"></i> <%=data[i].users.username %> rated <%=data[i].devRating %> <i class="fas fa-star"></i> and commented:<p> <%=data[i].devComment %></p></div>
+        
+
+            <% } %>
+       <% } %>
+        
+        
+        
             
         </div>
        

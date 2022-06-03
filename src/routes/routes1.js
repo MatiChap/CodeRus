@@ -63,4 +63,6 @@ body("description").notEmpty().withMessage('Please enter your description in the
 //-------------------------LOGOUT----------------------
 router.get('/logout', controller1.logout)
 
+router.get('/search', controller1.search);
+
 module.exports = router;

@@ -40,7 +40,8 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: 'dev_id',
             otherKey: 'user_id',
             timestamps: false,
-        })
+        });
+        
     };
     
     

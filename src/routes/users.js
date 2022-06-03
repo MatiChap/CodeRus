@@ -4,6 +4,7 @@ const routerUsers = express.Router();
 const userControl = require ('./../controllers/controllerUsers');
 const {body} = require('express-validator');
 const bcrypt = require('bcryptjs');
+const user = require('../../database/models/user');
 let validation = [
    body("username").notEmpty().withMessage('Please insert your username.').bail()
    .isLength({min:5}).withMessage('Username is too short.'),
@@ -65,6 +66,15 @@ routerUsers.put('/editProfile/:id',[
 
 ], userControl.editedProfile);
 
+
+//---------------------------PROJECT COMMENT&RATE FORM--------------------------------
+routerUsers.get('/endConnection/:id', userControl.endConnect);
+
+
+//----------------PROJECT RATE&COMMENT FUNCTION------------------------------------
+routerUsers.put('/endConnection/:id',[
+   body("comment").notEmpty().withMessage('Please leave a comment describing your experience.').bail()
+], userControl.endedConnect);
 
 
 

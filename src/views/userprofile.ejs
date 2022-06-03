@@ -20,15 +20,28 @@
 
         <div class="profile">
           <h3>Welcome, <%=user.username %>.</h3>
-        <p> Your email is : <%=user.email %> </p>
+          <ul class = "chill"><p class="chillti">Your contact information</p>
+        <li class="chill"><i class="fal fa-envelope"></i> E-mail : <%=user.email %> </li>
+        <li class="chill"><i class="far fa-phone-alt"></i> Phone number : <%=user.phone %></li>
+         </ul>   
             
-            
-            <a href="/user/editProfile/<%=user.id%>"><button class="buttons" type="button"><i class="fas fa-user-check"></i> Change email or password </button></a>
+            <a href="/user/editProfile/<%=user.id%>"><button class="buttons" type="button"><i class="far fa-cog"></i> Change contact info </button></a>
         </div>
-        <p>Your active connections:</p>
-            <% for(let i=0;i<projects.length;i++) { %>
-                <div class="projects">
+        <p id="connects">Your active connections:</p>
+        
+        <div id="devlist">
+           
+            <% for(let i=0;i<data.length;i++) { %>
+                <div class="profile">
+                    <h3 class="name"><%= data[i].devs.name %></h3>
                     
+
+                    <div id='ppcontainer'>
+                    <img class='pp' src="<%= data[i].devs.picture %>"></img>
+                    </div>
+                    <div id="profileactions">
+                        <a href="endConnection/<%=data[i].id %>"><button class="buttons" type="button"><i class="fal fa-send-back"></i> Finish connection</button></a>
+                    </div>
 
 
 
@@ -39,7 +52,7 @@
         
         </div>
     
-    
+    </div>
 
 </body>
 <br></br>

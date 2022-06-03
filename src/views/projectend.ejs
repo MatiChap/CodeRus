@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang=es>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>CodeRus - Cart</title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300&family=Roboto:wght@400;900&display=swap" rel="stylesheet"> 
+</head>
+
+
+<body>
+    <%- include('./partials/header') %>
+    <div id="bodyMain">
+        <% if (locals.errors) { 
+            errors.forEach(error => { %>
+            <p class="errors"><i class="fal fa-times-hexagon"></i> 
+
+                <%= error.msg %></p>
+        <%    })
+         } %>
+    <% if(locals.user) { %>
+    <form class="form" action="/user/endConnection/<%=data.id %>?_method=PUT" method="POST">
+        <h1 id="regtitle">Ending connection with <%= data.devs.name %></h1>
+        <div id='ppcontainer'>
+            <img class='pp' src="<%= data.devs.picture %>"></img>
+            </div>
+      <p>      
+        <label for="comment">Leave a comment: </label>
+        <br></br>
+            <input class="input" type="text" name="comment" placeholder="Comment about your experience with <%=data.devs.name %> here"></input>
+      </p>
+      <p>
+          <label for="rating"> Rate your experience (1-10): </label>
+          <br></br>
+          <input class="input" type="number" name="rating" min="1" max="10"></input>
+      </p>
+      <label for="success">Was your experience with <%= data.devs.name %> successful? </label>
+          <br></br>
+          <input class="input" type="checkbox" name="success" value="1"></input>
+      
+      </p>
+      
+
+      <input class="buttons" type="submit" value="Finish and rate this connection"></input>
+
+
+    </form>
+    <% }else{ %>
+        <p class="errors"><i class="fal fa-times-hexagon"></i> 
+
+            You are not logged in!</p>
+        <% } %>
+    </div>
+</body>
+<footer>
+    <%- include('./partials/footer') %>
+</footer>
+
+
+</html>
