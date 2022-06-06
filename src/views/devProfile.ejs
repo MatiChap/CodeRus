@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>CodeRus - Developer</title>
+    <title>CodeRus - <%=data[1].devs.name %></title>
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
@@ -22,13 +22,13 @@
         
             <div class="profile">
             <div id="ppcontainer">
-                <img class="pp" src="<%= data[i].devs.picture%>">
+                <img class="pp" id="devPic<%=data[i].devs.id %>" src="<%= data[i].devs.picture%>">
                   </div>
-        <h3> <%=data[i].devs.name %> </h3>
+        <h3 id="devName<%=data[i].devs.id %>"> <%=data[i].devs.name %> </h3>
         <p> <%=data[i].devs.description %></p>
             <div id="profileactions">
             
-            <button class="buttons" type="button"><i class="fas fa-user-check"></i> Add to team</button>
+                <button class="buttons" id="devAdd" type="button" value="<%=data[i].devs.id %>"><i class="fas fa-user-check"></i> Add to cart </button>
         </div>
         
             <% break %>
@@ -53,6 +53,7 @@
     </div>
     <br></br>
     <br></br>
+    <%- include('./partials/Cart') %>
 </body>
 <footer>
     <%- include('./partials/footer') %>

@@ -4,7 +4,18 @@
          
         let cart = []
        
-        let addButton = document.querySelectorAll('#devAdd').forEach(button => 
+        let addButton = document.querySelectorAll('#devAdd');
+        
+        addButton.forEach((button)=>{
+            let id = button.value
+            if(cart.some(e => e.id === id)){
+                button.style.backgroundColor = '#e600002e';
+                button.innerHTML = '<i class="fas fa-times"></i> Remove from cart'
+            }
+
+        });
+
+        addButton.forEach(button => 
         button.addEventListener('click',function(e){
             let id = button.value
             

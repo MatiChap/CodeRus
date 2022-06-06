@@ -25,7 +25,7 @@ app.use('*', function(req,res) {
     res.send("Error 404");
 });
 
-app.listen(process.env.PORT || 3000, () =>
+app.listen(process.env.PORT || 4000, () =>
 console.log('Server up')
 );
 

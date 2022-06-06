@@ -16,6 +16,7 @@ window.addEventListener('load', function(){
             let usernameInput =  document.querySelector("[name = 'username']");
             let emailInput = document.querySelector("[name = 'email']");
             let passwordInput = document.querySelector("[name = 'password']");
+            let passwordConfirm = document.querySelector("[name = 'confirm']");
             let ageInput = document.querySelector("[name = 'age']");
             let phoneInput = document.querySelector("[name = 'phone']");
             let nationInput = document.querySelector("[name = 'nationality']");
@@ -56,6 +57,9 @@ window.addEventListener('load', function(){
                 errors.push('Please insert your phone number.')
             }else if(isNaN(phoneInput.value)){
                 errors.push('Invalid character in phone number.')
+            }
+            if(passwordConfirm.value != passwordInput.value){
+                errors.push('Error confirming password.')
             }
 
             if(errors.length > 0){

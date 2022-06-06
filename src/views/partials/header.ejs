@@ -12,24 +12,24 @@
         </div>
         <nav id="navbar">
                 <ul class="navleft">
-                    <li><a href='/dev'><em><i class="fas fa-code-branch"></i></em> Developers  </a></li>
-                    <li><a href='#'><em><i class="fas fa-cogs"></i></em> Help  </a></li>
+                    <li><a href='/dev'><em><i class="fas fa-code-branch"></i></em>  Developers  </a></li>
+                    <li><a href='#'><em><i class="fas fa-cogs"></i></em>  Help  </a></li>
     
                 </ul>
                 <% if (locals.user) { %>
          
                     <ul class="navright">
                     
-                    <li><a href='/user/profile'><em><i class="fas fa-user"></i></em> <%=user.username %>  </a></li>
-                    <li><a href='/cart'><em><i class="fas fa-shopping-cart"></i></em> Cart  </a></li>
+                    <li><a href='/user/profile'><em><i class="fas fa-user"></i></em>  <%=user.username %>  </a></li>
+                    <li><a href='/cart'><em><i class="fas fa-shopping-cart"></i></em>  Cart  </a></li>
                     <a href="/logout"><p id="greeting">Log out</p></a>
                      </ul>
                         
                    
                  <% }else{ %><ul class="navright">
                     
-                    <li><a href='/user/register'><em><i class="far fa-id-badge"></i></em> Register </a></li>
-                    <li><a href='/user/login'><em><i class="fas fa-user"></i></em> Log In </a></li>
+                    <li><a href='/user/register'><em><i class="far fa-id-badge"></i></em>  Register </a></li>
+                    <li><a href='/user/login'><em><i class="fas fa-user"></i></em>  Log In </a></li>
                      </ul>
                      <% } %>
 

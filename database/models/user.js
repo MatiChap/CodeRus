@@ -17,13 +17,6 @@ module.exports = (sequelize, dataTypes) => {
        pass: {
            type: dataTypes.STRING
        },
-       created_at: {
-           type: dataTypes.DATE
-        
-       },
-       updated_at: {
-           type: dataTypes.DATE
-       },
        phone: {
            type: dataTypes.STRING
        },
@@ -35,11 +28,17 @@ module.exports = (sequelize, dataTypes) => {
        },
        nationality: {
            type: dataTypes.STRING
-       }
+       },
+       createdAt: {
+        type: "TIMESTAMP",
+        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+        allowNull: false,
+      }
     };
     let config = {
         tableName:"user",
-        timestamps: false
+        timestamps: true,
+        
         
     }
     const User = sequelize.define(alias,cols,config);
@@ -50,7 +49,7 @@ module.exports = (sequelize, dataTypes) => {
             through: 'project_dev',
             foreignKey: 'user_id',
             otherKey: 'dev_id',
-            timestamps: false,
+            timestamps: true,
         })
     };
     

@@ -4,14 +4,15 @@
       hire.addEventListener('click',function(){
           
 
-                             fetch('http://localhost:3000/cart', {
-                  method: 'POST', // or 'PUT'
-                 headers: {
-                     'Content-Type': 'application/json',
-                 },
-                 body: localStorage.getItem('cart')
-              })
-              .then(response => window.location.href = '/');
+                             fetch('http://localhost:4000/cart', {
+                              method: 'POST', // or 'PUT'
+                              headers: {
+                                         'Content-Type': 'application/json',
+                                        },
+                              body: localStorage.getItem('cart')
+                                    }
+                                  )
+                              .then(response => window.location.href = '/');
                 //  .then(response => response.json())
                  
                 //  .then(data => {

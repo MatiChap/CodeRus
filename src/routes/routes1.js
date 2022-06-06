@@ -65,4 +65,17 @@ router.get('/logout', controller1.logout)
 
 router.get('/search', controller1.search);
 
+//------------------------------API-----------------------------
+
+router.get('/usersapi',controller1.returnUsers);
+
+router.get('/usersapi/:id', controller1.returnUser);
+
+router.get('/devsapi', controller1.returnDevs);
+
+router.get('/devsapi/:id',controller1.returnDev);
+
+router.get('/projectapi', controller1.returnProject);
+
+
 module.exports = router;

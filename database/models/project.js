@@ -29,11 +29,17 @@ module.exports = (sequelize, dataTypes) => {
        },
        projectName: {
            type: dataTypes.STRING
-       }
+       },
+       createdAt: {
+        type: "TIMESTAMP",
+        defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+        allowNull: false,
+      }
     };
     let config = {
         tableName:"project_dev",
-        timestamps: false
+        timestamps: true,
+        
         
     }
     const Project = sequelize.define(alias,cols,config);
@@ -42,13 +48,13 @@ module.exports = (sequelize, dataTypes) => {
         Project.belongsTo(models.Users, {
             as: 'users',
             foreignKey: 'user_id',
-            timestamps: false,
+            timestamps: true,
         });
         Project.belongsTo(models.Devs,
             {
                 as: 'devs',
                 foreignKey: 'dev_id',
-                timestamps:false,
+                timestamps:true,
 
             })
     };

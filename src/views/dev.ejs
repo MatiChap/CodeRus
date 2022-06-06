@@ -16,8 +16,11 @@
 
 <body>
     <%- include('./partials/header') %>
-    <div id="bodyMain">
+    <div id="bodyMain"> 
+        
+        <i class="chillti">Browse through our developers and find the right ones for your needs.</i>
         <a href="/newdev"><button class="buttons" type="button"><i class="fas fa-laptop"></i> Create your Developer Profile</button></a>
+        <a href="/cart"><button class="buttons" type="button"><i class="fas fa-shopping-cart"></i> Go to cart section</button></a>
         <div id="devlist">
         <% for(let i=0;i<data.length;i++) { %>
         <div class="profile">
@@ -33,8 +36,8 @@
             
         </div>
         <% } %>
-        <a href="/cart"><button class="buttons" type="button"><i class="fas fa-shopping-cart"></i> Go to cart section</button></a>
-
+        
+       
         </div>
         
         

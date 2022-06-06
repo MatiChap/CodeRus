@@ -23,6 +23,7 @@ body {
   border-bottom: ridge 4px gray;
   max-height: 1000px;
   overflow: hidden;
+  padding:10px;
 }
 #lupa {
   height: 50px;
@@ -174,18 +175,18 @@ footer {
 }
 
 .input {
-  width: 100%;
   font-family: "open sans", sans-serif;
   border: solid 1px rgb(56, 66, 67);
   border-radius: 5px;
   text-align: center;
+  width:100%;
 }
 
 .form label {
   font-family: "open sans", sans-serif;
   font-size: 1.1rem;
   box-shadow: 1px 1px 4px 1px #0000005e;
-  background-color: #9cd3ca45;
+  background-color: #ffffff45;
   color: #2a3233;
   padding: 7px;
   border-radius: 7px;

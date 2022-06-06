@@ -219,7 +219,7 @@ hire: (req,res) => {
                            projectName: 'Your new project',
                    })
            }
-       res.send('gaga');
+       res.send('gaga')
 },
 
 
@@ -229,6 +229,7 @@ logout: (req,res) => {
         res.redirect('/')
 },
 
+//-------------------------SEARCH BAR-------------------------
 search: (req,res)=> {
         let search = req.query.search;
         db.Devs.findAll({
@@ -242,6 +243,82 @@ search: (req,res)=> {
                   res.render('search',{data: dev,user:req.session.loggedUser});      
                 })
 
+},
+
+//-------------------------------------API----------------------------------
+returnUsers: async (req,res) =>{
+        let count = await db.Users.count()
+
+        db.Users.findAll({
+                
+                order: [['createdAt', 'DESC']]
+                
+        })
+        .then(function(data){
+                res.json({data: data, count:count})
+        })
+},
+
+returnUser: async (req,res) => {
+        db.Users.findByPk(req.params.id,{
+                attributes:['username', 'nationality' , 'age' , 'createdAt']
+                
+        })
+        .then(function(data){
+                res.json({data:data})
+        })
+},
+
+returnDevs: async(req,res)=>{
+        let count= await db.Devs.count();
+        db.Devs.findAll({order: [['createdAt', 'DESC']]})
+        .then(function(data){
+                res.json({data:data, count:count})
+        })
+},
+
+returnDev: async(req,res)=>{
+        db.Projects.findAll({
+                raw:true,
+                nest:true,
+                include: [{
+                    model:db.Devs,
+                    as: 'devs',
+                    raw:true,
+                    nest:true,
+                         
+                    
+            },{association:'users'}],
+                where :{
+                    dev_id: req.params.id
+                    
+                },
+                
+                
+            }).then(function(data){
+               
+               
+                res.json({data: data})
+            })
+},
+
+returnProject: async(req,res)=>{
+        
+        let count = await db.Projects.count();
+        db.Projects.findAll({
+                order: [['createdAt', 'DESC']],
+                where :{ongoing:0},
+                include: [{
+                        model:db.Devs,
+                        as: 'devs',
+                        raw:true,
+                        nest:true,
+                             
+                        
+                },{association:'users'}]
+        }).then(function(data){
+                res.json({data:data, count:count})
+        })
 }
 }
 
