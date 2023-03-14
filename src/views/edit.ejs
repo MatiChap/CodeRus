@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>CodeRus - Cart</title>
+    <link rel="icon" href="/img/TinyLogo.png">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
@@ -31,27 +32,27 @@
         </div>
     <form class="form" action="/edit/<%= dev.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
         <h1 id="regtitle">Edit profile:</h1>
-      <p>      
-        <label for="name">Full name</label>
-        <br></br>
+      <div class="profilecont1">      
+        <label for="name">Full Name <i class="fas fa-user-tag"></i></label>
+        
             <input class="input" type="text" name="name" value="<%=dev.name %>"></input>
-      </p>
-      <p>
-          <label for="description">Brief description</label>
-          <br></br>
+      </div>
+      <div class="profilecont1">
+          <label for="description">Description <i class="far fa-keyboard"></i></label>
+          
           <textarea class="input" type="text" name="description" value="<%=dev.description %>"></textarea>
-      </p>
-      <p>
-        <label for="pp" >Profile Picture</label>  
-        <br></br>
+      </div>
+      <div class="profilecont1">
+        <label for="pp" >Profile Picture <i class="fas fa-camera-retro"></i></label>  
+        
         <div id="ppcontainer">
         <img class="pp" src="<%=dev.picture %>"">
         </div>
-        <br></br>       
+               
         <input type="file" name="picture" required></input>
         
 
-      </p>
+    </div>
       
 
       <input class="buttons" type="submit" value="Update"></input>

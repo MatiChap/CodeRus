@@ -53,11 +53,13 @@ create: function(req,res){
 },
         //-------------------------LOG IN FORM----------------------
 login: (req, res) => {
-    res.render('login');
+    
+    res.render('login',{errors:req.session.errors});
 },
         //-------------------------LOG IN FUNCTION----------------------
 userLogin: (req,res)=> {
     let errors = validationResult(req);
+    req.session.errors = []
         if(errors.isEmpty()){
             let loggingUser;
             db.Users.findAll()

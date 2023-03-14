@@ -1,10 +1,21 @@
 <script>
     window.addEventListener('load', function(){
-        
-         
+        localStorage.clear()
+        let cartbutton = document.querySelector("#cartbutton");
         let cart = []
        
         let addButton = document.querySelectorAll('#devAdd');
+
+        if(cart.length > 0){
+                cartbutton.innerHTML = '<i class="fas fa-shopping-cart"></i> Go to cart'
+                cartbutton.disabled = false;
+                cartbutton.className='buttons'
+            }else{
+                cartbutton.innerHTML = '<i class="fas fa-cart-plus"></i> Add developers to cart first'
+                cartbutton.disabled = true;
+                cartbutton.className = 'chillti'
+                
+            }
         
         addButton.forEach((button)=>{
             let id = button.value
@@ -38,18 +49,25 @@
                 cart = cart.filter(e => e.id !== id);
                 localStorage.setItem('cart', JSON.stringify(cart));
                 console.log('Deleted ' + name);
-                console.log(localStorage.getItem('cart'));
-                console.log(cart);
-                button.style.backgroundColor = "#deda6f";
+                console.log(cart.length);
+                button.style.backgroundColor = ""
                 button.innerHTML = '<i class="fas fa-user-check"></i> Add to cart '
                 
             }else{
                 cart.push(dev);
                 localStorage.setItem('cart', JSON.stringify(cart));
-                console.log(localStorage.getItem('cart'));
-                console.log(cart);
-                button.style.backgroundColor = '#e600002e';
+                console.log(cart.length);
+                button.style.backgroundColor = "#f7d7d7";
                 button.innerHTML = '<i class="fas fa-times"></i> Remove from cart'
+            }if(cart.length > 0){
+                cartbutton.innerHTML = '<i class="fas fa-shopping-cart"></i> Go to cart'
+                cartbutton.disabled = false;
+                cartbutton.className='buttons'
+            }else{
+                cartbutton.innerHTML = '<i class="fas fa-cart-plus"></i> Add developers to cart'
+                cartbutton.disabled = true;
+                
+                cartbutton.className='chillti'
             }
            
             

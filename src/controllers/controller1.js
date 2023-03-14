@@ -28,10 +28,11 @@ const upload = multer({ storage:storage, fileFilter: fileFilter, limits: limits 
 const { validationResult } = require('express-validator');
 const dataFilePath = path.join(__dirname, '../database/Data.json');
 // let devs = JSON.parse(fs.readFileSync(dataFilePath, 'utf-8'));
-const sharp=require('sharp');
+
 const { Op } = require("sequelize");
 
-let db = require('../../database/models')
+let db = require('../../database/models');
+const { type } = require('os');
 
 
 const controlador = {
@@ -47,10 +48,15 @@ index: (req, res) => {
 
 //------------------------DEVELOPER LIST----------------------
 dev: (req, res) => {
+         if(typeof req.session.loggedUser == "undefined"){
+                req.session.errors=[{msg:"You must be logged in!"}]
+                res.redirect('/user/login')
+        }else{
         db.Devs.findAll()
                 .then(function(dev){
-                  res.render('dev',{data: dev,user:req.session.loggedUser});      
-                })
+                  res.render('dev',{data: dev,user:req.session.loggedUser,errors:req.session.errors}); 
+                      
+                })}
 
         
     
@@ -202,9 +208,15 @@ edited:function (req,res) {
 
         
 //-------------------------CART(IN PROGRESS)----------------------
-cart: (req, res) => {
-    
-    res.render('cart',{ user:req.session.loggedUser});
+cart: (req, res) => {{
+        //-----
+        //if (typeof localStorage === "undefined" || localStorage === null){
+         //       req.session.errors=[{msg:"You haven't added any developers to your cart yet."}]
+          //      res.redirect('/dev')
+                
+       // }else{
+    //----No pudimos hacerlo andar. O no tira el error nunca, o lo tira siempre, no sabemos como chequear localStorage si no tiene nada guardado antes
+    res.render('cart',{ user:req.session.loggedUser})};
 
 },
 hire: (req,res) => {

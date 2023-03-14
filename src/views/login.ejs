@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>CodeRus - Log In</title>
+    <link rel="icon" href="/img/TinyLogo.png">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
@@ -17,37 +18,64 @@
 <body>
     <%- include('./partials/header') %>
     <div id="bodyMain">
-        <% if (locals.errors) { 
-            errors.forEach(error => { %>
-            <p class="errors"><i class="fal fa-times-hexagon"></i> 
-
-                <%= error.msg %></p>
-        <%    })
-         } %>
+        
          <div class="error">
             <ul>
 
             </ul>
         </div>
-        <form class="form" action="login" method="post">
-            <h1 id="regtitle">Log-In  <i class="fas fa-sign-in"></i></i></h1>
-            <p>
-                <label>E-mail</label>
+        
+            <% if (locals.errors) { 
+            errors.forEach(error => { %>
+            <form class="form" action="login" method="post">
+            
+                <h1 id="regtitle">Log-In  <i class="fas fa-sign-in"></i></i></h1>
+            <div class="profilecont1">
+                <label>E-mail <i class="fas fa-envelope"></i></label>
                 <br></br>
                 <input class="input" type="email" name="email" required>
-            </p>
+            </div>
     
-            <p>
-                <label>Password</label>
+            <div class="profilecont1">
+                <label>Password <i class="fas fa-user-shield"></i></label>
                 <br></br>
                 <input class="input" type="password" name="password" required>
-            </p>
+            </div>
+            <p class="errors"><i class="fal fa-times-hexagon"></i> 
+
+                <%= error.msg %></p>
     
-            <p>
-                <input class="input" type="submit" name="button" value="Log In Your Account">
-            </p>
+            
+                <input class="buttons" type="submit" name="button" value="Log In Your Account">
+            
     
         </form>
+        <%    })}else{ %>
+            <form class="form" action="login" method="post">
+            
+                <h1 id="regtitle">Log-In  <i class="fas fa-sign-in"></i></i></h1>
+            <div class="profilecont1">
+                <label>E-mail <i class="fas fa-envelope"></i></label>
+                <br></br>
+                <input class="input" type="email" name="email" required>
+            </div>
+    
+            <div class="profilecont1">
+                <label>Password <i class="fas fa-user-shield"></i></label>
+                <br></br>
+                <input class="input" type="password" name="password" required>
+            </div>
+            
+    
+            
+                <input class="buttons" type="submit" name="button" value="Log In Your Account">
+            
+    
+        </form>
+
+        <% } %>
+
+            
         
 
     </div>

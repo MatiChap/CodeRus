@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>CodeRus - Search Results</title>
+    <link rel="icon" href="/img/TinyLogo.png">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
@@ -21,11 +22,15 @@
         <div id="devlist">
         <% for(let i=0;i<data.length;i++) { %>
         <div class="profile">
+            <div class="profilecont1">
             <div id="ppcontainer">
           <img class="pp" id="devPic<%=data[i].id %>" src="<%=data[i].picture %>">
             </div>
+            <div>
         <h3 class="name" id="devName<%=data[i].id %>"> <%=data[i].name %> </h3>
         <p id="desc"> <%=data[i].description %></p>
+            </div></div>
+
         <div id="profileactions">
             <a href="devProfile/<%=data[i].id %>"><button class="buttons" type="button"><i class="fas fa-user"></i> Profile</button></a>
             <button class="buttons" id="devAdd" type="button" value="<%=data[i].id %>"><i class="fas fa-user-check"></i> Add to cart </button>

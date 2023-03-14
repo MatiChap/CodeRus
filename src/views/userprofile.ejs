@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>CodeRus - Your Profile</title>
+    <link rel="icon" href="/img/TinyLogo.png">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
@@ -20,13 +21,18 @@
 
         <div class="profile">
           <h3>Welcome, <%=user.username %>.</h3>
-          <ul class = "chill"><p class="chillti">Your contact information</p>
-        <li class="chill"><i class="fal fa-envelope"></i> E-mail : <%=user.email %> </li>
-        <li class="chill"><i class="far fa-phone-alt"></i> Phone number : <%=user.phone %></li>
-         </ul>   
-            
+          <h2 class = "chill">Contact Information</h2>
+        <li class="chill"><strong>E-mail <i class="fal fa-envelope"></i></strong>  <%=user.email %></li>
+        <li class="chill"><strong>Phone number <i class="far fa-phone-alt"></i></strong>   <%=user.phone %></li>
+        <li class="chill"><strong>Nationality <i class="fas fa-globe-americas"></i></strong>   <%=user.nationality %></li>
+         </ul> 
+         
+         <a href="/newdev"><button class="buttons" type="button"><i class="fas fa-laptop"></i> Create Developer Profile</button></a>
             <a href="/user/editProfile/<%=user.id%>"><button class="buttons" type="button"><i class="far fa-cog"></i> Change contact info </button></a>
+        
         </div>
+        
+        <% if(data.length > 0){  %>
         <p id="connects">Your active connections:</p>
         
         <div id="devlist">
@@ -47,7 +53,7 @@
 
                     
                 </div>
-                <% } %>
+                <% }} %>
 
         
         </div>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>CodeRus - Editing Profile</title>
+    <link rel="icon" href="/img/TinyLogo.png">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
@@ -27,21 +28,22 @@
     <% if(locals.user) { %>
     <form class="form" action="/user/editProfile/<%=userToEdit.id %>?_method=PUT" method="POST">
         <h1 id="regtitle">Edit profile:</h1>
-      <p>      
-        <label for="name">Your email: </label>
-        <br></br>
+      <div class="profilecont1">      
+        <label for="name">Email <i class="fas fa-envelope"></i></label>
+        
             <input class="input" type="email" name="email" value="<%=user.email %>"></input>
-      </p>
-      <p>
-          <label for="pass">Your password: </label>
-          <br></br>
+      </div>
+      <div class="profilecont1">
+          <label for="pass">Password <i class="fas fa-user-shield"></i></label>
+          
           <input class="input" type="text" name="password" value="******"></input>
-      </p>
-      <label for="desc">Your phone number: </label>
+      </div>
+      <div class="profilecont1">
+      <label for="desc">Phone number <i class="fas fa-phone-alt"></i></label>
           <br></br>
           <input class="input" type="text" name="phone" value="******"></input>
       
-      </p>
+      </div>
       
 
       <input class="buttons" type="submit" value="Update"></input>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>CodeRus - Register</title>
+    <link rel="icon" href="/img/TinyLogo.png">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
@@ -17,67 +18,64 @@
 <body>
     <%- include('./partials/header') %>
     <div id="bodyMain">
-        <% if (locals.errors) { 
+        
+
+        
+        <form method="POST" class="form"  action="/user/register">
+            <% if (locals.errors) { 
             errors.forEach(error => { %>
             <p class="errors"><i class="fal fa-times-hexagon"></i> 
 
                 <%= error.msg %></p>
         <%    })
          } %>
-
-         <div class="error">
-             <ul>
-
-             </ul>
-         </div>
-        <form method="POST" class="form"  action="/user/register">
             <h1 id="regtitle">Sign-In  <i class="fas fa-arrow-to-right"></i></h1>
-            <p>
-                <label for="username">Username</label>
+            <div class="profilecont1">
+                <label for="username">Username <i class="fas fa-user-edit"></i></label>
                 <br></br>
                 <input class="input" type="text" name="username">
-            </p>
+            </div>
     
-            <p>
-                <label for="email">E-mail</label>
+            <div class="profilecont1">
+                <label for="email">E-mail <i class="fas fa-envelope"></i></label>
                 <br></br>
                 <input class="input" type="email" name="email">
-            </p>
+            </div>
     
-            <p>
-                <label for="password">Password</label>
+            <div class="profilecont1">
+                <label for="password">Password <i class="fas fa-user-shield"></i></label>
                 <br></br>
                 <input class="input" type="password" name="password"></input>
-            </p>
-            <p>
-                <label for="password">Confirm Password</label>
+            </div>
+            <div class="profilecont1">
+                <label for="password">Confirm Password <i class="fas fa-user-shield"></i></label>
                 <br></br>
                 <input class="input" type="password" name="confirm"></input>
-            </p>
-            <p>
+            </div>
+            <div class="profilecont1">
                 
-                <label for="age">Age</label>
+                <label for="age">Date of Birth <i class="far fa-calendar-alt"></i></label>
                 <br></br>
-                <input class="input" type="text" name="age"></input>
+                <input class="input" type="date" name="age"></input>
     
-            </p>
-            <p>
+            </div>
+            <div class="profilecont1">
                 
-                 <label for="phone">Phone Number</label>
+                 <label for="phone">Phone Number <i class="fas fa-phone-alt"></i></label>
                 <br></br>
                  <input class="input" type="text" name="phone"></input>
         
-            </p>
-                <p>
+            </div>
+            <div class="profilecont1">
                 
-                    <label for="age">Nationality</label>
+                    <label for="age">Nationality <i class="fas fa-globe-americas"></i></label>
                     <br></br>
                     <input class="input" type="text" name="nationality" ></input>
-                </p>
+            </div>
         
-                <p>
+                
                 <input class="buttons" type="submit" name="button" value="Create your account"></input>
-            </p>
+            
     
         </form>
 
