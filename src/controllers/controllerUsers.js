@@ -17,16 +17,25 @@ register: (req, res) => {
 },
     //-------------------------USER REGISTER FUNCTION----------------------
 create: function(req,res){
-   /* // db.Users.findAll()
-    .then(function(user){
-        for(let i=0 ; i < user.length; i++){
-    if(user[i].email == req.body.email){
-        errors = ['Mail already in use.']
-        res.render('register', {errors: errors})
-    }
-}
-}); */ 
     let errors = validationResult(req);
+    db.Users.findAll({
+        where: {
+            username: req.body.username
+        }
+    }).then(function(acc){
+        if(acc.length > 0){
+            console.log(acc)
+            res.render('register', {errors: [{msg:"That username is already taken!"}], old: req.body})
+        }else{
+            db.Users.findAll({
+                where: {
+                    email: req.body.email
+                }
+            }).then(function(mail){
+                if(mail.length > 0){
+                    res.render('register', {errors: [{msg:"That email already belongs to another account!"}], old: req.body})
+                }else{
+        
         if(errors.isEmpty()){
        
         
@@ -48,9 +57,14 @@ create: function(req,res){
 
         }else{
                 res.render('register', {errors: errors.array(), old: req.body})
+        }    
         }
+    })
+    
+        
 
-},
+}
+})},
         //-------------------------LOG IN FORM----------------------
 login: (req, res) => {
     

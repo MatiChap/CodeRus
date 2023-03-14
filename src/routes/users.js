@@ -13,9 +13,7 @@ let validation = [
    body("password").notEmpty().withMessage('Please enter your password.').bail()
    .isLength({min:5}).withMessage('Your password is too short!(Min characters:5)')
    .isLength({max:20}).withMessage('Your password is too long! (Max characters:20)'),
-   body("age").notEmpty().withMessage('Please insert your age.').bail()
-   .isLength({min:2,max:2}).withMessage('Invalid age.').bail()
-   .isInt({min:18}).withMessage('You must be at least 18 years old to use our platform.'),
+   body("age").notEmpty().withMessage('Please insert your age.').bail(),
    body("nationality").notEmpty().withMessage('Please insert your nationality.').bail()
    .isAlpha().withMessage('Invalid character in nationality.'),
    body("phone").notEmpty().withMessage("Insert your phone number.").bail()
@@ -39,9 +37,9 @@ routerUsers.get('/login', userControl.login);
 
 //-------------------------USER LOGIN FUNCTION----------------------
 routerUsers.post('/login',[
-    body("email").notEmpty().withMessage('Please insert your email in the form.').bail()
+    body("email").notEmpty().withMessage('Please insert your email.').bail()
     .isEmail().withMessage('Invalid email') ,
-    body("password").notEmpty().withMessage('Please enter your password in the form.').bail()
+    body("password").notEmpty().withMessage('Please insert your password.').bail()
     .isLength({min:5}).withMessage('That password is too short!(Min characters:5)')
     .isLength({max:20}).withMessage('That password is too long! (Max characters:20)')
  

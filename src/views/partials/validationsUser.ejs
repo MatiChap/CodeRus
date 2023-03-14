@@ -22,7 +22,13 @@ window.addEventListener('load', function(){
             let nationInput = document.querySelector("[name = 'nationality']");
 
             let errorList = document.querySelector('div.error ul');
-            
+            let userYearInput = new Date(ageInput.value);
+           let userYear = userYearInput.getFullYear();
+           let userYearValidate = userYear - 18;
+           let currentDate = new Date();
+           let currentYear = currentDate.getFullYear();
+           let currentYearValidate = currentYear - 18;
+           let validateYear = currentDate.getYear() - 18;
            
 
             if(usernameInput.value.length < 0){
@@ -43,9 +49,11 @@ window.addEventListener('load', function(){
                 errors.push('Password is too short! (Min characters: 5)')
             }
 
-            if(ageInput.value.length < 0){
+
+           
+            if(userYearInput == "Invalid Date"){
                 errors.push('Please insert your age')
-            }else if(ageInput.value < 18){
+            }else if(userYearValidate >= currentYearValidate){
                 errors.push('You must be at least 18 years old to use our platform.')
             }
 

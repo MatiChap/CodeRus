@@ -49,8 +49,8 @@ index: (req, res) => {
 //------------------------DEVELOPER LIST----------------------
 dev: (req, res) => {
          if(typeof req.session.loggedUser == "undefined"){
-                req.session.errors=[{msg:"You must be logged in!"}]
-                res.redirect('/user/login')
+                
+                res.render('login',{errors:[{msg:"You have to be logged in!"}]})
         }else{
         db.Devs.findAll()
                 .then(function(dev){

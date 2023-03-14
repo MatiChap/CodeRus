@@ -22,6 +22,11 @@
 
         
         <form method="POST" class="form"  action="/user/register">
+            <div class="error">
+            <ul>
+
+            </ul>
+        </div>
             <% if (locals.errors) { 
             errors.forEach(error => { %>
             <p class="errors"><i class="fal fa-times-hexagon"></i> 
