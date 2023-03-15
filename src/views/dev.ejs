@@ -35,12 +35,14 @@
         <% for(let i=0;i<data.length;i++) { %>
         <div class="profile">
             <div class="profilecont1">
+                <div>
             <div id="ppcontainer">
           <img class="pp" id="devPic<%=data[i].id %>" src="<%=data[i].picture %>">
             </div>
-        <div><h3 class="name" id="devName<%=data[i].id %>"> <%=data[i].name %> </h3>
+        <h3 class="name" id="devName<%=data[i].id %>"> <%=data[i].name %> </h3>
+        </div>
         <p id="desc"> <%=data[i].description %></p>
-    </div>
+    
     </div>
         <div id="profileactions">
             <a href="devProfile/<%=data[i].id %>"><button class="buttons" type="button"><i class="fas fa-user"></i> Profile</button></a>
