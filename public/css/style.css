@@ -181,6 +181,7 @@ footer {
   box-shadow: 1px 1px 4px 1px #0000005e;
   margin-bottom: 120px;
   align-items: center;
+  max-width: 85%;
 }
 
 
