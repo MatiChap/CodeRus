@@ -15,8 +15,9 @@ body {
   background-image:url("/img/4850037.jpg");
   
 }
+
 #main-header {
-  background-color: #364243;
+  background-color: #364243eb;
   text-align: center;
   width: 100%;
   top: 0px;
@@ -30,7 +31,7 @@ body {
   width: 50px;
   font-size: 1rem;
   border-radius: 10px;
-  transition: all 0.5s;
+  transition: 0.5s;
   border: solid 1px rgb(56, 66, 67);
   box-shadow: 1px 2.5px #88888891;
   background-color: #343535;
@@ -127,7 +128,7 @@ body {
   align-self: center;
 }
 footer {
-  background-color: #384141;
+  background-color: #364243eb;
   border-top: ridge 4px gray;
   justify-content: space-between;
   position: fixed;
@@ -293,10 +294,18 @@ input.input:nth-child(5):active{
   padding:20px;
 }
 
+.fa-star{
+  color:#767601;
+ }
+
+ .fa-align-justify{
+  color: #dedd64c7;
+ }
+
 .buttons {
   font-family: "open sans", sans-serif;
   border-radius: 10px;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color:#2a3233;
   margin:5px;
   transition:all 1s;
@@ -304,7 +313,7 @@ input.input:nth-child(5):active{
   align-self: center;
   border: none;
   background-color: none;
-  box-shadow: 1px 0px 1px 1px
+  box-shadow:  1px 4px 1px #0000005e;
 }
 
 #botbar {
@@ -347,6 +356,7 @@ input.input:nth-child(5):active{
  display: flex;
  flex-direction: column;
  justify-content: space-between;
+ align-items: center;
 }
 .success {
   text-align: center;
@@ -370,9 +380,12 @@ input.input:nth-child(5):active{
     max-height: 100%;
   height: 100%;
   border-radius: 5px;
+  width: 100%;
+  object-fit: cover;
+
 }
 .profile h3 {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   color: #364243;
 }
 .profile h2 {
@@ -384,7 +397,7 @@ input.input:nth-child(5):active{
 }
 
 #ppcontainer {
-  height:150px;
+  height:100px;
   overflow: clip;
   display: flex;
   align-items: center;
@@ -392,10 +405,10 @@ input.input:nth-child(5):active{
   border-radius: 15px;
   flex-wrap: wrap;
   box-shadow: 0px 1px 1px 1px;
-  width: 150px;
+  width: 100px;
   margin:auto;
   background-color: rgba(250, 235, 215, 0.596);
-  
+ 
   
 }
 .success h4 {

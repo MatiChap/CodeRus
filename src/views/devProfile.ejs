@@ -34,15 +34,15 @@
         
             <% break %>
        <% } %>
-        <h3>Comments and ratings</h3>
+        
        <% for(let i = 0; i < data.length ; i++){ %>
         <% if(data[i].devComment){ %>
-
+            <h3>Comments and ratings</h3>
         <div><i class="fas fa-user-tag"></i> <%=data[i].users.username %> rated <%=data[i].devRating %> <i class="fas fa-star"></i> and commented:<p> <%=data[i].devComment %></p></div>
         
 
-            <% } %>
-       <% } %>
+            
+       <% }} %>
         
         
         

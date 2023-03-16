@@ -68,7 +68,14 @@ create: function(req,res){
         //-------------------------LOG IN FORM----------------------
 login: (req, res) => {
     
-    res.render('login',{errors:req.session.errors});
+    if(req.query.error){
+        error = [{msg: "You must log in first!"}]
+        console.log(error)
+        res.render('login',{errors:error});
+    }else{
+        res.render('login');
+    }
+    
 },
         //-------------------------LOG IN FUNCTION----------------------
 userLogin: (req,res)=> {

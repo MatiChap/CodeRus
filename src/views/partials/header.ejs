@@ -11,23 +11,23 @@
         </div>
         <nav id="navbar">
                 <ul class="navleft">
-                    <li><a href='/dev'><em><i class="fas fa-code-branch"></i></em>  Developers  </a></li>
-                    <li><a href='#'><em><i class="fas fa-cogs"></i></em>  Help  </a></li>
+                    <li><a href='/dev'>  Developers  <em><i class="fas fa-code-branch"></i></em></a></li>
+                    <li><a href='#'>  Help  <em><i class="fas fa-cogs"></i></em></a></li>
     
                 </ul>
                 <% if (locals.user) { %>
          
                     <ul class="navright">
                     
-                    <li><a href='/user/profile'><em><i class="fas fa-user"></i></em>  <%=user.username %>  </a></li>
+                    <li><a href='/user/profile'> <%=user.username %>  <em><i class="fas fa-user"></i></em> </a></li>
                     <li><a href="/logout">Log out <em><i class="fas fa-sign-out-alt"></i></em></a></li>
                      </ul>
                         
                    
                  <% }else{ %><ul class="navright">
                     
-                    <li><a href='/user/register'><em><i class="far fa-id-badge"></i></em>  Register </a></li>
-                    <li><a href='/user/login'><em><i class="fas fa-user"></i></em>  Log In </a></li>
+                    <li><a href='/user/register'>  Register <em><i class="far fa-id-badge"></i></em></a></li>
+                    <li><a href='/user/login'>  Log In <em><i class="fas fa-user"></i></em></a></li>
                      </ul>
                      <% } %>
 

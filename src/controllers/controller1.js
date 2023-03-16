@@ -49,8 +49,10 @@ index: (req, res) => {
 //------------------------DEVELOPER LIST----------------------
 dev: (req, res) => {
          if(typeof req.session.loggedUser == "undefined"){
+
+                req.session.error = [{msg:"You must be logged in!"}]
                 
-                res.render('login',{errors:[{msg:"You have to be logged in!"}]})
+                res.redirect('/user/login?error=true')
         }else{
         db.Devs.findAll()
                 .then(function(dev){
@@ -150,9 +152,24 @@ devProfile : async(req,res)=> {
             }
             
         }).then(function(data){
-           
+           if(data.length === 0){
+                db.Devs.findAll({
+                        raw:true,
+                        where: {
+                                id: req.params.id
+                        }
+                }).then(function(dat){
+                        let result = [];
+                        devs = dat.pop();
+                        let obj = { devs };
+                        result.push(obj);
+                       
+                       console.log(result);
+                        res.render('devProfile', {user:req.session.loggedUser, data: result})
+                })
+           }else{
            console.log(data);
-            res.render('devProfile', {user:req.session.loggedUser, data: data})
+            res.render('devProfile', {user:req.session.loggedUser, data: data})}
         })
 },
 
