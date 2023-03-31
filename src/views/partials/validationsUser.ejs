@@ -30,7 +30,8 @@ window.addEventListener('load', function(){
            let currentYearValidate = currentYear - 18;
            let validateYear = currentDate.getYear() - 18;
            
-
+           errorList.innerHTML = '';
+           
             if(usernameInput.value.length < 0){
                 errors.push('Please insert your username.')
             }else if(usernameInput.value.length < 5){

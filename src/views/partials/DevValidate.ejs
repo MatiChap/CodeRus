@@ -19,6 +19,7 @@
                 
     
                 let errorList = document.querySelector('div.error ul');
+                errorList.innerHTML = '';
                 
                 if(nameInput.value.length < 0){
                     error.push('Please insert your full name.')
@@ -46,7 +47,7 @@
                     e.preventDefault();
                     for(let i=0; i < error.length; i++){
                         errorList.innerHTML += '<li class="errors">'+ '<i class="fal fa-times-hexagon"></i>'+ ' ' + error[i] + '</li>'
-    
+                    
                     }
                 };
     
