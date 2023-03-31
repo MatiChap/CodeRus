@@ -5,7 +5,9 @@ module.exports = (sequelize, dataTypes) => {
         primaryKey: true,
         autoIncrement: true,
 
-    } ,
+    } , user_id: {
+        type: dataTypes.INTEGER
+    },
        name: {
            type: dataTypes.STRING
            
@@ -47,6 +49,12 @@ module.exports = (sequelize, dataTypes) => {
             otherKey: 'user_id',
             timestamps: true,
         });
+
+        Dev.belongsTo(models.Users,{
+            as: 'user',
+            foreignKey:'user_id',
+            timestamps: true
+        })
         
     };
     

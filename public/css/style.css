@@ -12,7 +12,9 @@ body {
   padding: 0;
   height: 100%;
   position: relative;
-  background-image:url("/img/4850037.jpg");
+  background-image:url("/img/bg2.jpg");
+  background-size:auto;
+  background-size: inherit;
   
 }
 
@@ -77,9 +79,10 @@ body {
   
 }
 #LogoBig {
-  width: 40vw;
   max-width: 270px;
   border-radius: 15px;
+  width: 240px;
+  margin: 0px 10px;
 
 }
 #promo {
@@ -348,7 +351,7 @@ input.input:nth-child(5):active{
   font-family: "open sans", sans-serif;
   color: #141414;
   border-radius: 30px;
-  background-color: #efefef;
+  background-color: #efefef8c;
   box-shadow: 1px 1px 4px 1px #0000005e;
   overflow:hidden;
   margin:10px;
@@ -487,8 +490,16 @@ li {
   margin-left: 5px;
   margin-right: 5px;
 }
+.navright {
+  display:flex;
+  padding: 5px;
+  flex-direction: column;
+}
+.navleft{
+  padding: 5px;
+}
 
-  #navbar a {
+  #navbar li a {
     text-decoration: none;
     color: #fffefe;
     display: inline-block;
@@ -502,12 +513,15 @@ li {
   #navbar {
     align-items: center;
     justify-content: space-between;
-    padding: 0;
+    padding-bottom: 10px;
     font-size: 1rem;
     font-weight: 550;
     transition: all 0.7s;
-    display: none;
+    display: flex;
     overflow: hidden;
+    flex-direction: column;
+    height: fit-content;
+  
     
   }
 
@@ -533,14 +547,18 @@ li {
     border-left: solid #ffffff1f 0.001px;
     
   }
-  #navbar a:hover{
+  #navbar .navright a:hover{
     font-size: 1.3rem;
     
   }
 
-  #navbar a:active{
+
+#navbar a:active{
     transform: translateY(4px,0.1);
   }
+  
+ 
+  
   #navbar li:hover {
     font-size: 1.2rem;
     border-radius: 12px;
@@ -573,10 +591,14 @@ li {
   padding-right: 10px;
 }
 
-@media (min-width: 760px) {
+@media (min-width: 800px) {
   #navbar {
     display: flex;
+    flex-direction: row;
     
+  }
+  .navright{
+    flex-direction: row;
   }
   #botbar {
     justify-content: space-between;

@@ -67,7 +67,7 @@ dev: (req, res) => {
 //-------------------------DEV REGISTER FORM----------------------
 newDevForm: (req,res) => {
         
-        
+       
         res.render('newDev', {user:req.session.loggedUser})
         
 },
@@ -82,7 +82,8 @@ newDevCreate: async (req,res) => {
                         nationality: req.body.nationality,
                         picture: '/img/pp/'+ req.file.filename,
                         age: req.body.age,
-                        description: req.body.description
+                        description: req.body.description,
+                        user_id: req.session.loggedUser.id,
                 })
 
 

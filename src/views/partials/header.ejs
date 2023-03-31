@@ -1,66 +1,55 @@
 <header id="main-header"> 
-    <div id="header">
-        <a href="/"><img id="LogoBig" src="/img/Logo.png"></a>
-        <form id="buscador" action="/search">
-     <input id="barra" name="search" placeholder="Search for developers..."></input><button type="submit" id="lupa" ><i class="fas fa-search"></i></button>
-        </form>
-                
     
-    
-    
-        </div>
         <nav id="navbar">
-                <ul class="navleft">
-                    <li><a href='/dev'>  Developers  <em><i class="fas fa-code-branch"></i></em></a></li>
-                    <li><a href='#'>  Help  <em><i class="fas fa-cogs"></i></em></a></li>
+            
+            <% if (locals.user) { %>
+                <ul class="navleft"> 
+                    <a id="anch" href="/"><img id="LogoBig" src="/img/logo-removebg-preview.png"></a>
+                    <form id="buscador" action="/search">
+                        <input id="barra" name="search" placeholder="Search for developers..."></input><button type="submit" id="lupa" ><i class="fas fa-search"></i></button>
+                    </form>
+                    
+                   
     
                 </ul>
-                <% if (locals.user) { %>
+                
          
-                    <ul class="navright">
+                <div class="navright">
                     
                     <li><a href='/user/profile'> <%=user.username %>  <em><i class="fas fa-user"></i></em> </a></li>
                     <li><a href="/logout">Log out <em><i class="fas fa-sign-out-alt"></i></em></a></li>
-                     </ul>
+                </div>
                         
                    
-                 <% }else{ %><ul class="navright">
+                 <% }else{ %>
+                <ul class="navleft"> 
+                        <a  id="anch" href="/"><img id="LogoBig" src="/img/logo-removebg-preview.png"></a>
+                       
+        
+                </ul>
+                <div class="navright">
                     
                     <li><a href='/user/register'>  Register <em><i class="far fa-id-badge"></i></em></a></li>
                     <li><a href='/user/login'>  Log In <em><i class="fas fa-user"></i></em></a></li>
-                     </ul>
+                </div>
                      <% } %>
 
                      
                
         </nav>
-        <a href="#" id="boton"><i class="fas fa-align-justify"></i></a>
+        
 
         <script>
             let boton = document.querySelector('#boton');
             let navbar = document.querySelector('#navbar');
+            let logo = document.querySelector('#LogoBig');
+            let header = document.querySelector('#main-header');
+            let anch = document.querySelector("#anch");
             
-            if(window.innerWidth >= 764){
-                navbar.style.display = 'flex'
-
-            }else{
-                navbar.style.display = 'block'
-                navbar.style.transform = 'scaleY(0)'
-                navbar.style.height = '0'
-            }
-            boton.addEventListener('click', function(){
-                if(navbar.style.transform === 'scaleY(0)'){
-                navbar.style.display = 'block'
-                navbar.style.transform = 'scaleY(1)'
-                navbar.style.height = '370px'
-                
-                }else {
-                    navbar.style.transform = 'scaleY(0)'
-                    navbar.style.height = '0'
-                    
-                }
-            })
             
+    
+              
+           
 
         </script>
         

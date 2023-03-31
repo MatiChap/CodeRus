@@ -51,6 +51,7 @@ module.exports = (sequelize, dataTypes) => {
             otherKey: 'dev_id',
             timestamps: true,
         })
+        
     };
     
     return User;
