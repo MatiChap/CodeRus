@@ -30,33 +30,28 @@ body {
 }
 #lupa {
   height: 50px;
-  width: 50px;
-  font-size: 1rem;
-  border-radius: 10px;
-  transition: 0.5s;
-  border: solid 1px rgb(56, 66, 67);
-  box-shadow: 1px 2.5px #88888891;
-  background-color: #343535;
- color: #fff;
-}
-#lupa :hover {
- 
-  color: #deda6f;
+    width: 50px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    text-decoration:none;
+    background-color: #404c4e;
 }
 
-#lupa :active{
-  transform: translateY(4px,0.1);
-}
+
+
 #barra {
-  width: 85%;
-  border-radius: 15px;
-  height: 100%;
-  align-self: center;
-  font-family: "open sans", sans-serif;
-  font-size: 1rem;
-  border: solid 1px rgb(56, 66, 67);
-  padding: 10px;
-  box-shadow: 1px 2.5px #88888891;
+  color: white;
+  border: 0;
+  outline: 0;
+  background: none;
+  width: 0;
+  caret-color:transparent;
+  line-height: 50px;
+  transition: width 0.4s linear;
 }
 
 #devlist {
@@ -68,16 +63,29 @@ body {
 }
 
 #buscador {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin: auto;
-  background-color: #c0c0c052;
-  border-radius: 15px;
-  padding:10px;
-  max-width: 400px;
+    height: 70px;
+    background-image:linear-gradient(#fff,#2d3636);
+    border-radius: 30px;
+    padding: 10px;
+    font-family: "open sans", sans-serif;
+    width: fit-content;
+    align-self: center;
   
 }
+#buscador:hover > #barra{
+  padding: 0 10px;
+  width:250px;
+  transition: width 0.4s linear;
+  }
+
+#buscador:hover {
+    background-color: #fffefe;
+    background-image: none;
+    transition: all 0.4s;
+  
+ }
+
 #LogoBig {
   max-width: 270px;
   border-radius: 15px;
@@ -121,7 +129,6 @@ body {
   margin:auto;
   width: auto;
   margin-bottom: 80px;
-  margin-top:30px;
   gap:15px;
 }
 #LogoTiny {

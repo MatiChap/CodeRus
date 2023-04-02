@@ -45,6 +45,18 @@
             let logo = document.querySelector('#LogoBig');
             let header = document.querySelector('#main-header');
             let anch = document.querySelector("#anch");
+            let buscador = document.querySelector("#buscador");
+            
+
+            buscador.addEventListener("submit",function(e){
+                let barra = document.querySelector("[name = 'search']");
+                console.log(barra.value)
+                if(barra.value.length <= 0){
+                    e.preventDefault();
+    
+                }
+
+            })
             
             
     
