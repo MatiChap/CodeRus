@@ -29,7 +29,7 @@
                 </ul>
                 <div class="navright">
                     
-                    <li><a href='/user/register'>  Register <em><i class="far fa-id-badge"></i></em></a></li>
+                    <li><a href='/user/register'>  Sign Up <em><i class="far fa-id-badge"></i></em></a></li>
                     <li><a href='/user/login'>  Log In <em><i class="fas fa-user"></i></em></a></li>
                 </div>
                      <% } %>
@@ -40,6 +40,8 @@
         
 
         <script>
+
+document.addEventListener("DOMContentLoaded", () => {
             let boton = document.querySelector('#boton');
             let navbar = document.querySelector('#navbar');
             let logo = document.querySelector('#LogoBig');
@@ -48,7 +50,30 @@
             let buscador = document.querySelector("#buscador");
             
 
-            buscador.addEventListener("submit",function(e){
+           
+
+            const buttons = document.querySelectorAll("[data-carrousel-button]")
+
+buttons.forEach(button => {
+
+  button.addEventListener("click", () => {
+    const offset = button.dataset.carrouselButton === "next" ? 1 : -1
+    const slides = button
+      .closest("[data-carrousel]")
+      .querySelector("[data-slides]")
+
+    const activeSlide = slides.querySelector("[data-active]")
+    let newIndex = [...slides.children].indexOf(activeSlide) + offset
+    if (newIndex < 0) newIndex = slides.children.length - 1
+    if (newIndex >= slides.children.length) newIndex = 0
+
+    slides.children[newIndex].dataset.active = true
+    delete activeSlide.dataset.active
+  })
+})
+})
+            
+             buscador.addEventListener("submit",function(e){
                 let barra = document.querySelector("[name = 'search']");
                 console.log(barra.value)
                 if(barra.value.length <= 0){
@@ -57,8 +82,6 @@
                 }
 
             })
-            
-            
     
               
            

@@ -17,7 +17,7 @@
 
 <body>
     <%- include('./partials/header') %>
-    <div id="bodyMain">
+    
         <% if (locals.errors) { 
             errors.forEach(error => { %>
             <p class="errors"><i class="fal fa-times-hexagon"></i> 
@@ -59,7 +59,7 @@
 
 
     </form>
-    </div>
+    
     <%- include('./partials/DevEditValidate') %>
 </body>
 <footer>

@@ -17,7 +17,7 @@
 
 <body>
     <%- include('./partials/header') %>
-    <div id="bodyMain">
+    
         
     <% if(locals.user) { %>
     <form class="form" action="/user/endConnection/<%=data.id %>?_method=PUT" method="POST">
@@ -59,7 +59,7 @@
 
             You are not logged in!</p>
         <% } %>
-    </div>
+    
 </body>
 <footer>
     <%- include('./partials/footer') %>
