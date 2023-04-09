@@ -14,11 +14,11 @@ body {
   height: 100%;
   width: 100%;
   position: relative;
-  background-color: #292929;
   background-size: inherit;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
 
 }
 
@@ -64,6 +64,10 @@ body {
   
 }
 
+#buttondiv {
+  text-align: center;
+}
+
 #buscador {
   margin: auto;
     height: 70px;
@@ -100,15 +104,27 @@ body {
   font-family: "open sans", sans-serif;
   color: #dadada;
   text-align: center;
-  padding:5px;
   font-weight: lighter;
   font-style: italic;
-  margin-right: 15px;
-  margin-left: 15px;
+  align-items: center;
+  display: flex;
+  background-color: #364243eb;
+  justify-content: center;
+  height: auto;
+  width:100vw;
+}
+
+#promo h1{
+  color: white;
 }
 #promo em {
   font-size: 25px;
   color: #c0c0c0;
+}
+
+#promo #LogoBig {
+  width: 50%;
+  min-width: 150px;
 }
 
 
@@ -123,7 +139,7 @@ footer {
   background-color: #364243eb;
   border-top: ridge 4px gray;
   justify-content: space-between;
-
+align-items: center;
 
   display: flex;
   font-size: 3vw;
@@ -139,7 +155,6 @@ ul {
   padding: 0;
   list-style: none;
 }
-
 
 
 .slide{
@@ -192,6 +207,8 @@ ul {
 #carrousel-button-f{
   right:0
 }
+
+
 
 .form {
   display: flex;
@@ -340,17 +357,33 @@ input.input:nth-child(5):active{
   background-color: none;
   box-shadow:  1px 4px 1px #0000005e;
 }
+.carbuttons{
+  font-family: "open sans", sans-serif;
+  font-size: 1.3rem;
+  color:#2a3233;
+  transition:all 1s;
+  border-radius:5px;
+  height: 70px;
+  background-color: #ffffffc0;
+  border: solid gray 1px;
+}
+
+#carrousel .buttons {
+  scale:1.5;
+  background-color: #ffffff46;
+  color: white;
+}
 
 #botbar {
   text-align: center;
   height: fit-content;
   position: absolute;
-  top: 15rem;
+  top: 12.8rem;
 }
-#botbar .buttons {
+#botbar .carbuttons {
   width: 90vw;
   position: relative;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 
@@ -360,7 +393,7 @@ input.input:nth-child(5):active{
 
 
 .buttons:active{
-  transform: translateY(4px,0.2s);
+  box-shadow: 2px 2px 5px #dbdb68;
 }
 
 .buttons:hover {
@@ -368,16 +401,21 @@ input.input:nth-child(5):active{
   
   
 }
-.buttons:active{
-  transform: translateY(4px,0.1);
+
+.carbuttons:hover {
+  transform: scaleX(1.05);
+  background-color: #dbdb68;
+  
+  
 }
+
 .profile {
   padding: 10px;
   text-align: center;
   font-family: "open sans", sans-serif;
   color: #141414;
   border-radius: 30px;
-  background-color: #efefef8c;
+  background-color: #efefef;
   box-shadow: 1px 1px 4px 1px #0000005e;
   margin:10px;
   width:85%;
@@ -398,7 +436,8 @@ input.input:nth-child(5):active{
 .profile p {
   text-align: center;
   border-radius: 15px;
-  background-color:rgba(250, 235, 215, 0.596);
+  background-color:rgb(235, 234, 234);
+  border: solid 2px #2a3233;
   font-family: "open sans", sans-serif;
   padding: 20px;
   margin: 15px;
@@ -414,7 +453,6 @@ input.input:nth-child(5):active{
 }
 .profile h3 {
   font-size: 1.1rem;
-  color: #364243;
 }
 .profile h2 {
   color: #364243;
@@ -483,8 +521,8 @@ li {
   width: 100%;
   text-align: center;
 }
-#cartbuttons{
-  margin-bottom: 80px;
+#cartbutton{
+  align-self: center;
 }
 #connects {
   font-family: "open sans", sans-serif;
@@ -555,7 +593,7 @@ li {
     border-radius: 12px;
     border-right: solid #ffffff1f 0.001px;
     border-left: solid #ffffff1f 0.001px;
-    padding: 10px
+    padding: 30px 10px;
   }
   
   #navbar li {
@@ -611,7 +649,11 @@ li {
   padding-left: 10px;
   padding-right: 10px;
 }
-
+@media(min-width:600px){
+  .profile {
+    width: 45%;
+  }
+}
 @media (min-width: 900px) {
 footer {
   padding-left: 30px;
@@ -631,12 +673,18 @@ footer {
     justify-content: space-between;
     display: flex;
     height: 100px;
+    top: 15.3rem;
   }
-  #botbar .buttons{
+  #botbar .carbuttons{
     width: 50vw;
     height: 100%;
   }
 
+  .carbuttons:hover {
+    transform: scaleY(1.1);
+    
+    
+  }
   
 
   
@@ -649,9 +697,6 @@ footer {
  
   #boton {
     display: none;
-  }
-  #promo {
-    margin-top: 50px;
   }
   
   #homePics {
