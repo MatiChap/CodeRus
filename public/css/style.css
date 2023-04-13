@@ -11,7 +11,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   position: relative;
   background-size: inherit;
@@ -167,7 +167,7 @@ ul {
 
 .slide img{
   width: 100vw;
-  height:60vh;
+  height:70vh;
   object-fit: cover;
    grid-column: 1;
   grid-row: 1;
@@ -180,7 +180,7 @@ ul {
 }
 #carrousel {
   position: relative;
-  margin-bottom: 60vh;
+  margin-bottom: 70vh;
 }
 #carrousel button {
   position: absolute;
@@ -192,11 +192,10 @@ ul {
 #carrousel p {
   position: absolute;
   top: 0 ;
-  left: 30%;
   background-color: rgba(0, 0, 0, 0.404);
   font-family:"open sans", sans-serif;
   font-size: 2rem;
-  padding:10px;
+  padding:5px;
   color: rgba(255, 255, 255, 0.808);
 }
 
@@ -208,8 +207,30 @@ ul {
   right:0
 }
 
+#promobot {
+  display: flex;
+  flex-direction: column;
+  color:#141414;
+  font-family: "open sans",sans-serif;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: lighter;
+  background-color: #5a59596b;
+}
+#promobot img{
+  background-color: #364243eb;
 
+}
 
+.promotiny{
+  padding: 10px;
+  border-radius: 20px;
+  border: solid rgba(128, 128, 128, 0.521) 1px;
+  background-color: #e2e2e2ea;
+  text-align: center;
+  margin: 10px;
+}
 .form {
   display: flex;
   text-align: center;
@@ -378,11 +399,11 @@ input.input:nth-child(5):active{
   text-align: center;
   height: fit-content;
   position: absolute;
-  top: 12.8rem;
+  top: 50vh;
 }
 #botbar .carbuttons {
   width: 90vw;
-  position: relative;
+  position: sticky;
   font-size: 1.8rem;
 }
 
@@ -673,7 +694,6 @@ footer {
     justify-content: space-between;
     display: flex;
     height: 100px;
-    top: 15.3rem;
   }
   #botbar .carbuttons{
     width: 50vw;
