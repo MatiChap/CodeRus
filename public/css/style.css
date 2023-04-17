@@ -192,12 +192,13 @@ ul {
 #carrousel p {
   position: absolute;
   top: 0 ;
-  background-color: rgba(0, 0, 0, 0.404);
+  background-color: rgb(255 255 255 / 66%);
   font-family:"open sans", sans-serif;
   font-size: 2rem;
   padding:5px;
-  color: rgba(255, 255, 255, 0.808);
-}
+  color: rgb(24 23 23 / 83%);
+  border-radius: 10px;
+  }
 
 #carrousel-button-r {
   left: 0
@@ -221,6 +222,9 @@ ul {
 #promobot img{
   background-color: #364243eb;
 
+}
+#promobot p{
+  font-size: 1.2rem;
 }
 
 .promotiny{
@@ -424,8 +428,9 @@ input.input:nth-child(5):active{
 }
 
 .carbuttons:hover {
-  transform: scaleX(1.05);
+  transform: scale(1.05);
   background-color: #dbdb68;
+  opacity: 1;
   
   
 }
@@ -694,14 +699,17 @@ footer {
     justify-content: space-between;
     display: flex;
     height: 100px;
+    left: 10%;
+
   }
   #botbar .carbuttons{
-    width: 50vw;
+    width: 40vw;
     height: 100%;
+    margin: 15px;
   }
 
   .carbuttons:hover {
-    transform: scaleY(1.1);
+    transform: scale(1.1);
     
     
   }

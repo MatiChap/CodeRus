@@ -19,7 +19,7 @@
 <body>
     <%- include('./partials/header') %>
     
-   
+    <% if(locals.user) { %>
         
           <div id="carrousel" data-carrousel>
             <button class="buttons" id="carrousel-button-r" data-carrousel-button="previous">&#8656;</button>
@@ -54,7 +54,43 @@
             </div>
           </div>
           
+ <% }else{ %>
 
+  <div id="carrousel" data-carrousel>
+    <button class="buttons" id="carrousel-button-r" data-carrousel-button="previous">&#8656;</button>
+    <button class="buttons" id="carrousel-button-f" data-carrousel-button="next">&#8658;</button>
+     <div id="botbar"> 
+    <a href='/user/register'><button class="carbuttons" type="button"><em><i class="far fa-id-badge"></i></em> Sign Up</button></a>
+    <a href="#promo"><button class="carbuttons" type="button">About Us</button></a>
+
+
+  </div> 
+    <ul data-slides>
+      <li class="slide" data-active><img src="/img/pic1.jpg"><p><img id="LogoTiny" src="/img/TinyLogo-removebg-preview.png"> Connect with the right people in the tech industry. Join our website today!</p></li>
+      <li class="slide"><img src="/img/pic2.jpg"><p><img id="LogoTiny" src="/img/TinyLogo-removebg-preview.png"> Find your dream job or the perfect candidate with our developer community.</p></li>
+      <li class="slide"><img src="/img/pic3.jpg"><p><img id="LogoTiny" src="/img/TinyLogo-removebg-preview.png"> Discover new opportunities and grow your network with our platform.</p></li>
+    </ul>
+  </div> 
+  <div id="promo">
+  <h1>About </h1>
+  <img id="LogoBig" src="/img/Logo-removebg-preview.png">
+
+</div>
+<div id="promobot">
+    <div class="promotiny">
+    <h1>Making the hiring process for tech jobs simpler and easier.</h1>
+    <p>With CodeRus you can find developers from all around and create your own profile and be a part of our developer community.</p>
+    </div>
+    <img id="LogoTiny" src="/img/TinyLogo-removebg-preview.png">
+    <div>
+
+    </div>
+    <div>
+
+    </div>
+  </div>
+
+  <% } %>
              
     
     
